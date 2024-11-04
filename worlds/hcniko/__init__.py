@@ -108,6 +108,7 @@ class HereComesNikoWorld(World):
                 coin_count += 1
                 if coin_count <= coins_needed:
                     item.classification = ItemClassification.progression
+        item_pool = [item for item in item_pool if item.name != self.selected_ticket]
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
         item_pool += [self.create_filler() for _ in range(total_locations - len(item_pool))]
         mw.itempool += item_pool
