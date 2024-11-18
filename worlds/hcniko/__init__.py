@@ -3,8 +3,9 @@ from typing import List, Dict, TextIO
 from BaseClasses import MultiWorld
 from BaseClasses import Region, Tutorial, ItemClassification
 from worlds.AutoWorld import World, WebWorld
-from .Items import item_data_table, HereComesNikoItem, item_table
-from .Locations import location_data_table, HereComesNikoLocation, locked_locations, location_table
+from .Items import item_data_table, HereComesNikoItem, item_table, item_name_groups
+from .Locations import location_data_table, HereComesNikoLocation, locked_locations, location_table, \
+    location_name_groups
 from .Options import *
 from .Regions import region_data_table
 from .Rules import *
@@ -34,6 +35,8 @@ class HereComesNikoWorld(World):
     options_dataclass = HereComesNikoOptions
     location_name_to_id = location_table
     item_name_to_id = item_table
+    item_name_groups = item_name_groups
+    location_name_groups = location_name_groups
 
     def __init__(self, multiworld: "MultiWorld", player: int):
         super().__init__(multiworld, player)
@@ -209,6 +212,9 @@ class HereComesNikoWorld(World):
             "chq2": self.cassette_cost["Tadpole HQ - Mai"],
             "cgg1": self.cassette_cost["Gary's Garden - Mitch"],
             "cgg2": self.cassette_cost["Gary's Garden - Mai"],
+            "keys": self.options.level_based_keys.value,
+            "fishsanity": self.options.fishsanity.value,
+            "garden_access": self.options.access_garys_garden.value,
             "snailshop": self.options.snail_shop.value,
             "shuffle_kiosk_reward": self.options.shuffle_kiosk_reward.value,
             "start_with_ticket": self.options.start_with_ticket.value,

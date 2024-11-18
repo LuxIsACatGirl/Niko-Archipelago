@@ -1,12 +1,18 @@
-TICKETS = ["Hairball City Ticket", "Turbine Town Ticket", "Salmon Creek Forest Ticket", "Public Pool Ticket", "Bathhouse Ticket", "Tadpole HQ Ticket"]
+TICKETS = ["Hairball City Ticket", "Turbine Town Ticket", "Salmon Creek Forest Ticket", "Public Pool Ticket",
+           "Bathhouse Ticket", "Tadpole HQ Ticket"]
+
+
 def has_all_coins(state, player):
     return state.has("Coin", player, 76)
+
 
 def can_talk_to_peper(state, player, int):
     return state.has("Coin", player, int)
 
+
 def has_enough_cassettes(state, player, int):
-    return state.has("Cassette", player, int*5)
+    return state.has("Cassette", player, int * 5)
+
 
 def has_all_tickets(state, player):
     return (state.has("Hairball City Ticket", player)
@@ -16,22 +22,28 @@ def has_all_tickets(state, player):
             and state.has("Bathhouse Ticket", player)
             and state.has("Tadpole HQ Ticket", player))
 
+
 def has_tickets(state, player, required_tickets):
     ticket_count = sum(1 for ticket in TICKETS if state.has(ticket, player))
     return ticket_count >= required_tickets
 
+
 def has_access_garden(state, player, world):
-    if world.options.access_garys_garden.value == 1:
+    access_option = world.options.access_garys_garden.value
+    if access_option == 1:
+        return state.has("Gary's Garden Ticket", player) and state.has("Tadpole HQ Ticket", player)
+    elif access_option == 2:
         return state.has("Gary's Garden Ticket", player)
     else:
-        return
+        return state.has("Tadpole HQ Ticket", player)
+
 
 def get_region_rules(player, world):
     if world.options.min_elevator_cost.value == world.options.max_elevator_cost.value:
         world.kiosk_cost["Elevator"] = world.options.max_elevator_cost.value
     else:
         world.kiosk_cost["Elevator"] = world.random.randint(world.options.min_elevator_cost.value,
-                                                world.options.max_elevator_cost.value)
+                                                            world.options.max_elevator_cost.value)
     return {
         "Home -> Hairball City":
             lambda state: state.has("Hairball City Ticket", player),
@@ -45,9 +57,12 @@ def get_region_rules(player, world):
             lambda state: state.has("Bathhouse Ticket", player),
         "Home -> Tadpole HQ":
             lambda state: state.has("Tadpole HQ Ticket", player),
+        "Home -> Gary's Garden":
+            lambda state: has_access_garden(state, player, world),
         "Tadpole HQ -> Home Party":
             lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"])
     }
+
 
 def get_location_rules(player, world):
     lowest_cost: int = world.options.min_kiosk_cost.value
@@ -64,9 +79,9 @@ def get_location_rules(player, world):
     if world.options.shuffle_kiosk_reward.value == 0:
         for i, kiosk_name in enumerate(kiosk_names):
             if i >= 3:
-                cost = 1 + 5 + (5*i)
+                cost = 1 + 5 + (5 * i)
             else:
-                cost = 1 + (5*i)
+                cost = 1 + (5 * i)
             world.kiosk_cost[kiosk_name] = cost
     else:
         for i, kiosk_name in enumerate(kiosk_names):
@@ -74,7 +89,8 @@ def get_location_rules(player, world):
             if min_range >= highest_cost:
                 min_range = highest_cost - 1
 
-            value: int = world.random.randint(min_range, min(highest_cost, max(lowest_cost, last_cost + cost_increment)))
+            value: int = world.random.randint(min_range,
+                                              min(highest_cost, max(lowest_cost, last_cost + cost_increment)))
             cost = world.random.randint(value, min(value + cost_increment, highest_cost))
             if i >= 1:
                 if last_cost + min_difference > cost:
@@ -109,41 +125,53 @@ def get_location_rules(player, world):
             lambda state: (state.has("Coin", player, world.kiosk_cost["Kiosk Public Pool"])),
         "Bathhouse - Kiosk":
             lambda state: (state.has("Coin", player, world.kiosk_cost["Kiosk Bathhouse"])),
-        "Employee Of The Month!":
+        "Achievement - Employee Of The Month!":
             lambda state: has_all_coins(state, player),
-        "Bottled Up":
+        "Achievement - Bottled Up":
             lambda state: state.has("Hairball City Ticket", player)
                           and state.has("Turbine Town Ticket", player)
                           and state.has("Salmon Creek Forest Ticket", player)
                           and state.has("Public Pool Ticket", player)
                           and state.has("Bathhouse Ticket", player),
-        "Hopeless Romantic":
+        "Achievement - Hopeless Romantic":
             lambda state: state.has("Hairball City Ticket", player)
                           and state.has("Turbine Town Ticket", player)
                           and state.has("Salmon Creek Forest Ticket", player)
                           and state.has("Public Pool Ticket", player)
                           and state.has("Bathhouse Ticket", player),
-        "Volley Dreams":
+        "Achievement - Volley Dreams":
+            lambda state: has_all_tickets(state, player)
+                          and (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2)),
+        "Achievement - Snail Fashion Show":
             lambda state: has_all_tickets(state, player),
         "Best Employee!":
             lambda state: has_all_coins(state, player),
         "Turbine Town - Dustan on Wind Turbine":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Turbine Town Key", player),
         "Public Pool - Blippy Coin":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Public Pool Key", player),
         "Bathhouse - Poppy":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Bathhouse Key", player, 2),
         "Tadpole HQ - Blippy Coin":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Tadpole HQ Key", player),
         "Hairball City - Cassette above Frog Statue":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Hairball City Key", player),
         "Salmon Creek Forest - Letter inside locked Cave":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Salmon Creek Forest Key", player),
         "Bathhouse - Cassette Mahjong Hideout":
-            lambda state: state.has("Key", player, 7),
+            lambda state: state.has("Key", player, 8)
+                          or state.has("Bathhouse Key", player, 2),
         "Salmon Creek Forest - Fish with Fischer":
-            lambda state: state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1),
+            lambda state: (state.has("Contact List 1", player)
+                           or state.has("Progressive Contact List", player, 1))
+                           and (world.options.fishsanity.value != 1 or state.has("Salmon Creek Forest Fish", player, 5)),
         "Hairball City - Nina":
             lambda state: state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1),
@@ -190,8 +218,9 @@ def get_location_rules(player, world):
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Bathhouse - Fish with Fischer":
-            lambda state: state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2),
+            lambda state: (state.has("Contact List 2", player)
+                           or state.has("Progressive Contact List", player, 2))
+                           and (world.options.fishsanity.value != 1 or state.has("Bathhouse Fish", player, 5)),
         "Bathhouse - Blessley":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
@@ -209,31 +238,32 @@ def get_location_rules(player, world):
                           or state.has("Turbine Town Ticket", player)
                           or state.has("Salmon Creek Forest Ticket", player)
                           or state.has("Bathhouse Ticket", player),
-        #Cassette
+        # Cassette
         "Hairball City - Mitch":
             lambda state: (state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1))
+                           or state.has("Progressive Contact List", player, 1))
                           and has_enough_cassettes(state, player, world.cassette_cost["Hairball City - Mitch"]),
         "Hairball City - Mai":
             lambda state: (state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1))
+                           or state.has("Progressive Contact List", player, 1))
                           and has_enough_cassettes(state, player, world.cassette_cost["Hairball City - Mai"]),
         "Turbine Town - Mitch":
             lambda state: (state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1))
+                           or state.has("Progressive Contact List", player, 1))
                           and has_enough_cassettes(state, player, world.cassette_cost["Turbine Town - Mitch"]),
         "Turbine Town - Mai":
             lambda state: (state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1))
+                           or state.has("Progressive Contact List", player, 1))
                           and has_enough_cassettes(state, player, world.cassette_cost["Turbine Town - Mai"]),
         "Salmon Creek Forest - Mai":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Salmon Creek Forest - Mai"])
-                          and state.has("Key", player, 8),
+                          and (state.has("Key", player, 8)
+                          or state.has("Salmon Creek Forest Key", player)),
         "Salmon Creek Forest - Mitch":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Salmon Creek Forest - Mitch"]),
         "Public Pool - Mitch":
             lambda state: (state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2))
+                           or state.has("Progressive Contact List", player, 2))
                           and has_enough_cassettes(state, player, world.cassette_cost["Public Pool - Mitch"]),
         "Public Pool - Mai":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Public Pool - Mai"]),
@@ -249,7 +279,7 @@ def get_location_rules(player, world):
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Gary's Garden - Mai"]),
         "Gary's Garden - Mitch":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Gary's Garden - Mitch"]),
-        #Fish
+        # Fish
         "Salmon Creek Forest - Bass":
             lambda state: state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1),
@@ -280,37 +310,45 @@ def get_location_rules(player, world):
         "Bathhouse - Pufferfish":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
-        #Snail Shop
+        "Hairball City - Fish with Fischer":
+            lambda state: (world.options.fishsanity.value != 1 or state.has("Hairball City Fish", player, 5)),
+        "Turbine Town - Fish with Fischer":
+            lambda state: (world.options.fishsanity.value != 1 or state.has("Turbine Town Fish", player, 5)),
+        "Public Pool - Fish with Fischer":
+            lambda state: (world.options.fishsanity.value != 1 or state.has("Public Pool Fish", player, 5)),
+        "Tadpole HQ - Fish with Fischer":
+            lambda state: (world.options.fishsanity.value != 1 or state.has("Tadpole HQ Fish", player, 5)),
+        # Snail Shop
         "Snail Shop - Bowtie":
-            lambda state: has_tickets(state, player, 4), #10000$
+            lambda state: has_tickets(state, player, 4),  # 10000$
         "Snail Shop - Motorcycle":
-            lambda state: has_tickets(state, player, 2), #500$
+            lambda state: has_tickets(state, player, 2),  # 500$
         "Snail Shop - Sunglasses":
-            lambda state: has_tickets(state, player, 3), #2000$
+            lambda state: has_tickets(state, player, 3),  # 2000$
         "Snail Shop - Mahjong":
-            lambda state: has_tickets(state, player, 1), #100$
+            lambda state: has_tickets(state, player, 1),  # 100$
         "Snail Shop - Cap":
-            lambda state: has_tickets(state, player, 2), #500$
+            lambda state: has_tickets(state, player, 2),  # 500$
         "Snail Shop - King Staff":
-            lambda state: has_tickets(state, player, 4), #10000$
+            lambda state: has_tickets(state, player, 4),  # 10000$
         "Snail Shop - Mouse":
-            lambda state: has_tickets(state, player, 3), #1000$
+            lambda state: has_tickets(state, player, 3),  # 1000$
         "Snail Shop - Clown Face":
-            lambda state: has_tickets(state, player, 2), #500$
+            lambda state: has_tickets(state, player, 2),  # 500$
         "Snail Shop - Cat":
-            lambda state: has_tickets(state, player, 3), #1000$
+            lambda state: has_tickets(state, player, 3),  # 1000$
         "Snail Shop - Bandanna":
-            lambda state: has_tickets(state, player, 2), #500$
+            lambda state: has_tickets(state, player, 2),  # 500$
         "Snail Shop - Stars":
-            lambda state: has_tickets(state, player, 2), #500$
+            lambda state: has_tickets(state, player, 2),  # 500$
         "Snail Shop - Sword":
-            lambda state: has_tickets(state, player, 3), #3000$
+            lambda state: has_tickets(state, player, 3),  # 3000$
         "Snail Shop - Top hat":
-            lambda state: has_tickets(state, player, 1), #50$
+            lambda state: has_tickets(state, player, 1),  # 50$
         "Snail Shop - Glasses":
-            lambda state: has_tickets(state, player, 1), #50$
+            lambda state: has_tickets(state, player, 1),  # 50$
         "Snail Shop - Flower":
-            lambda state: has_tickets(state, player, 1), #50$
+            lambda state: has_tickets(state, player, 1),  # 50$
         "Snail Shop - Small Hat":
-            lambda state: has_tickets(state, player, 1), #50$
+            lambda state: has_tickets(state, player, 1),  # 50$
     }

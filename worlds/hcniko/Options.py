@@ -1,5 +1,6 @@
 from dataclasses import dataclass
-from Options import Toggle, StartInventoryPool, DeathLink, PerGameCommonOptions, Choice, Range
+from Options import Toggle, StartInventoryPool, DeathLink, PerGameCommonOptions, Choice, Range, DefaultOnToggle
+
 
 def adjust_options(world):
     if world.options.max_kiosk_cost < world.options.min_kiosk_cost:
@@ -68,13 +69,19 @@ class ShuffleGarysGarden(Toggle):
 class GarysGardenAccess(Choice):
     """Changes when Gary's Garden is accessible.
     Tadpole HQ: Gary's Garden will be accessible when Tadpole HQ is accessible.
-    Tadpole HQ & Gary's Garden: Gary's Garden won't be accessible until Tadpole HQ Ticket & Gary's Garden Ticket are obtained."""
-    #"Gary's Garden: Gary's Garden will be accessible in 'Home' when Gary's Garden Ticket has been obtained."
+    Tadpole HQ & Gary's Garden: Gary's Garden won't be accessible until Tadpole HQ Ticket & Gary's Garden Ticket are obtained.
+    Gary's Garden: Gary's Garden will be accessible in 'Home' when Gary's Garden Ticket has been obtained."""
     display_name = "Shuffle Gary's Garden"
     option_tadpole_hq = 0
     option_tadpole_and_garden = 1
-    #option_garden = 2
-    default = 0
+    option_garden = 2
+    default = 1
+
+
+class KeysLevelBased(DefaultOnToggle):
+    """If this option is enabled, Keys will be specific to the level.
+    Hairball City Keys only open Hairball City Locks"""
+    display_name = "Level Specific Keys"
 
 
 class GoalCompletion(Choice):
@@ -135,10 +142,9 @@ class CassetteLogic(Choice):
     default = 2
 
 
-class ProgressiveContactList(Toggle):
+class ProgressiveContactList(DefaultOnToggle):
     """If this option is enabled, the Contact Lists will not be separate, so you cannot get Contact List 2 before Contact List 1."""
     display_name = "Progressive Contact List"
-    default = 1
 
 
 class SnailShopLocations(Toggle):
@@ -161,7 +167,8 @@ class HereComesNikoOptions(PerGameCommonOptions):
     enable_achievements: EnableAchievements
     shuffle_handsome_frog: ShuffleHandsomeFrog
     shuffle_garys_garden: ShuffleGarysGarden
-    #access_garys_garden: GarysGardenAccess
+    access_garys_garden: GarysGardenAccess
+    level_based_keys: KeysLevelBased
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
     max_kiosk_cost: MaxKioskCost
