@@ -212,6 +212,7 @@ class HereComesNikoWorld(World):
             "chq2": self.cassette_cost["Tadpole HQ - Mai"],
             "cgg1": self.cassette_cost["Gary's Garden - Mitch"],
             "cgg2": self.cassette_cost["Gary's Garden - Mai"],
+            "shuffle_garden": self.options.shuffle_garys_garden.value,
             "keys": self.options.level_based_keys.value,
             "fishsanity": self.options.fishsanity.value,
             "garden_access": self.options.access_garys_garden.value,
@@ -220,5 +221,6 @@ class HereComesNikoWorld(World):
             "start_with_ticket": self.options.start_with_ticket.value,
             "goal_completion": self.options.goal_completion.value,
             "cassette_logic": self.options.cassette_logic.value,
+            "key_level": self.options.level_based_keys.value,
             "death_link": self.options.death_link.value
         }
