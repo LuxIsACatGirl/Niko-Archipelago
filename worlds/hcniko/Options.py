@@ -31,18 +31,16 @@ def total_coins(world) -> int:
 
     return count
 
-class ShuffleKioskReward(Toggle):
+class ShuffleKioskReward(DefaultOnToggle):
     """Choose whether to shuffle the Kiosk to NOT give the next Ticket but instead something else.
     Compatible with 'Start with Ticket'.
     Check the in-game Tracker for Kiosk Cost and if you bought it."""
     display_name = "Shuffle Kiosk Reward"
-    default = 1
 
 
-class StartWithTicket(Toggle):
+class StartWithTicket(DefaultOnToggle):
     """You'll start with a random Ticket. Highly recommended as there are only 3 checks at Home!"""
     display_name = "Start with Ticket"
-    default = 1
 
 
 class EnableAchievements(Choice):
@@ -60,10 +58,9 @@ class ShuffleHandsomeFrog(Toggle):
     display_name = "Shuffle Handsome Frog"
 
 
-class ShuffleGarysGarden(Toggle):
+class ShuffleGarysGarden(DefaultOnToggle):
     """Choose whether Gary's Garden should have locations."""
     display_name = "Shuffle Gary's Garden"
-    default = 1
 
 
 class GarysGardenAccess(Choice):
@@ -78,9 +75,9 @@ class GarysGardenAccess(Choice):
     default = 1
 
 
-class KeysLevelBased(DefaultOnToggle):
+class KeysLevelBased(Toggle):
     """If this option is enabled, Keys will be specific to the level.
-    Hairball City Keys only open Hairball City Locks"""
+    Hairball City Keys only open Hairball City Locks, Turbine Town Keys only open Turbine Town Locks etc."""
     display_name = "Level Specific Keys"
 
 
@@ -152,9 +149,18 @@ class SnailShopLocations(Toggle):
     display_name = "Snail Shop"
 
 
-class Fishsanity(Toggle):
-    """Every single fish you can fish with Fischer is a unique location."""
+class Fishsanity(Choice):
+    """Need more checks or are you just insane?
+    Vanilla: Normal Here Comes Niko! behaviour
+    Location: Every single fish you can fish with Fischer is a unique location
+    Insanity: Same as location with the change that Fischer won't give you the item until you have all 5 fish for that level obtained.
+    So you need the item 'Hairball City Fish' 5x before being able to obtain Fischer's reward.
+    Check the in-game menu, to see if you have enough fish and obtained the reward from Fischer."""
     display_name = "Fishsanity"
+    option_vanilla = 0
+    option_location = 1
+    option_insanity = 2
+    default = 0
 
 
 class HCNDeathLink(DeathLink):

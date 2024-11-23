@@ -21,7 +21,7 @@ base_id = 598_145_444_000
 item_data_table: Dict[str, HereComesNikoItemData] = {
     "Coin": HereComesNikoItemData(base_id, type=ItemClassification.progression_skip_balancing, num_exist=79),
     "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_skip_balancing, num_exist=71),
-    "Key": HereComesNikoItemData(base_id + 2, type=ItemClassification.progression, num_exist=8, can_create=lambda options: not options.level_based_keys.value),
+    "Key": HereComesNikoItemData(base_id + 2, type=ItemClassification.progression, num_exist=9, can_create=lambda options: not options.level_based_keys.value, item_group="Keys"),
     "Letter": HereComesNikoItemData(base_id + 7, type=ItemClassification.filler),
     "25 Apples": HereComesNikoItemData(base_id + 3, type=ItemClassification.filler),
     "Contact List 1": HereComesNikoItemData(base_id + 4, type=ItemClassification.progression, num_exist=1, can_create=lambda options: not options.progressive_contact_list.value, item_group="Contact List"),
@@ -32,12 +32,12 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "1000 Snail Dollar": HereComesNikoItemData(base_id + 16, type=ItemClassification.filler),
 
     # Fishsanity
-    "Hairball City Fish": HereComesNikoItemData(base_id + 20, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value, item_group="Fish"),
-    "Turbine Town Fish": HereComesNikoItemData(base_id + 21, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value, item_group="Fish"),
-    "Salmon Creek Forest Fish": HereComesNikoItemData(base_id + 22, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value, item_group="Fish"),
-    "Public Pool Fish": HereComesNikoItemData(base_id + 23, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value, item_group="Fish"),
-    "Bathhouse Fish": HereComesNikoItemData(base_id + 24, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value, item_group="Fish"),
-    "Tadpole HQ Fish": HereComesNikoItemData(base_id + 25, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value, item_group="Fish"),
+    "Hairball City Fish": HereComesNikoItemData(base_id + 20, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
+    "Turbine Town Fish": HereComesNikoItemData(base_id + 21, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
+    "Salmon Creek Forest Fish": HereComesNikoItemData(base_id + 22, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
+    "Public Pool Fish": HereComesNikoItemData(base_id + 23, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
+    "Bathhouse Fish": HereComesNikoItemData(base_id + 24, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
+    "Tadpole HQ Fish": HereComesNikoItemData(base_id + 25, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
 
     # Keys
     "Hairball City Key": HereComesNikoItemData(base_id + 30, type=ItemClassification.progression, can_create=lambda options: options.level_based_keys.value, item_group="Keys"),

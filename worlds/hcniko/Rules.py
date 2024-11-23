@@ -148,30 +148,30 @@ def get_location_rules(player, world):
         "Best Employee!":
             lambda state: has_all_coins(state, player),
         "Turbine Town - Dustan on Wind Turbine":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Turbine Town Key", player),
         "Public Pool - Blippy Coin":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Public Pool Key", player),
         "Bathhouse - Poppy":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Bathhouse Key", player, 2),
         "Tadpole HQ - Blippy Coin":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Tadpole HQ Key", player),
         "Hairball City - Cassette above Frog Statue":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Hairball City Key", player),
         "Salmon Creek Forest - Letter inside locked Cave":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Salmon Creek Forest Key", player),
         "Bathhouse - Cassette Mahjong Hideout":
-            lambda state: state.has("Key", player, 8)
+            lambda state: state.has("Key", player, 7)
                           or state.has("Bathhouse Key", player, 2),
         "Salmon Creek Forest - Fish with Fischer":
             lambda state: (state.has("Contact List 1", player)
                            or state.has("Progressive Contact List", player, 1))
-                           and (world.options.fishsanity.value != 1 or state.has("Salmon Creek Forest Fish", player, 5)),
+                           and (world.options.fishsanity.value != 2 or state.has("Salmon Creek Forest Fish", player, 5)),
         "Hairball City - Nina":
             lambda state: state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1),
@@ -220,7 +220,7 @@ def get_location_rules(player, world):
         "Bathhouse - Fish with Fischer":
             lambda state: (state.has("Contact List 2", player)
                            or state.has("Progressive Contact List", player, 2))
-                           and (world.options.fishsanity.value != 1 or state.has("Bathhouse Fish", player, 5)),
+                           and (world.options.fishsanity.value != 2 or state.has("Bathhouse Fish", player, 5)),
         "Bathhouse - Blessley":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
@@ -257,7 +257,7 @@ def get_location_rules(player, world):
                           and has_enough_cassettes(state, player, world.cassette_cost["Turbine Town - Mai"]),
         "Salmon Creek Forest - Mai":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Salmon Creek Forest - Mai"])
-                          and (state.has("Key", player, 8)
+                          and (state.has("Key", player, 7)
                           or state.has("Salmon Creek Forest Key", player)),
         "Salmon Creek Forest - Mitch":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Salmon Creek Forest - Mitch"]),
@@ -311,13 +311,13 @@ def get_location_rules(player, world):
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Hairball City - Fish with Fischer":
-            lambda state: (world.options.fishsanity.value != 1 or state.has("Hairball City Fish", player, 5)),
+            lambda state: (world.options.fishsanity.value != 2 or state.has("Hairball City Fish", player, 5)),
         "Turbine Town - Fish with Fischer":
-            lambda state: (world.options.fishsanity.value != 1 or state.has("Turbine Town Fish", player, 5)),
+            lambda state: (world.options.fishsanity.value != 2 or state.has("Turbine Town Fish", player, 5)),
         "Public Pool - Fish with Fischer":
-            lambda state: (world.options.fishsanity.value != 1 or state.has("Public Pool Fish", player, 5)),
+            lambda state: (world.options.fishsanity.value != 2 or state.has("Public Pool Fish", player, 5)),
         "Tadpole HQ - Fish with Fischer":
-            lambda state: (world.options.fishsanity.value != 1 or state.has("Tadpole HQ Fish", player, 5)),
+            lambda state: (world.options.fishsanity.value != 2 or state.has("Tadpole HQ Fish", player, 5)),
         # Snail Shop
         "Snail Shop - Bowtie":
             lambda state: has_tickets(state, player, 4),  # 10000$
