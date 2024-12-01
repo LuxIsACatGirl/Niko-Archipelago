@@ -150,19 +150,19 @@ def get_location_rules(player, world):
         "Turbine Town - Dustan on Wind Turbine":
             lambda state: state.has("Key", player, 7)
                           or state.has("Turbine Town Key", player),
-        "Public Pool - Blippy Coin":
+        "Public Pool - Blippy":
             lambda state: state.has("Key", player, 7)
                           or state.has("Public Pool Key", player),
         "Bathhouse - Poppy":
             lambda state: state.has("Key", player, 7)
                           or state.has("Bathhouse Key", player, 2),
-        "Tadpole HQ - Blippy Coin":
+        "Tadpole HQ - Blippy":
             lambda state: state.has("Key", player, 7)
                           or state.has("Tadpole HQ Key", player),
         "Hairball City - Cassette above Frog Statue":
             lambda state: state.has("Key", player, 7)
                           or state.has("Hairball City Key", player),
-        "Salmon Creek Forest - Letter inside locked Cave":
+        "Salmon Creek Forest - Inside Locked Cave":
             lambda state: state.has("Key", player, 7)
                           or state.has("Salmon Creek Forest Key", player),
         "Bathhouse - Cassette Mahjong Hideout":
@@ -172,6 +172,9 @@ def get_location_rules(player, world):
             lambda state: (state.has("Contact List 1", player)
                            or state.has("Progressive Contact List", player, 1))
                            and (world.options.fishsanity.value != 2 or state.has("Salmon Creek Forest Fish", player, 5)),
+        "Salmon Creek Forest - SPORTVIVAL":
+            lambda state: state.has("Contact List 1", player)
+                           or state.has("Progressive Contact List", player, 1),
         "Hairball City - Nina":
             lambda state: state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1),
@@ -184,7 +187,7 @@ def get_location_rules(player, world):
         "Hairball City - Blippy Dog":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
-        "Hairball City - Blippy Coin":
+        "Hairball City - Blippy":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Hairball City - Serschel & Louist":
@@ -193,7 +196,7 @@ def get_location_rules(player, world):
         "Turbine Town - Blippy Dog":
             lambda state: state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1),
-        "Turbine Town - Blippy Coin":
+        "Turbine Town - Blippy":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Turbine Town - Serschel & Louist":
@@ -202,7 +205,7 @@ def get_location_rules(player, world):
         "Salmon Creek Forest - Game Kid":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
-        "Salmon Creek Forest - Blippy Coin":
+        "Salmon Creek Forest - Blippy":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Salmon Creek Forest - Serschel & Louist":
@@ -230,7 +233,7 @@ def get_location_rules(player, world):
         "Bathhouse - Blippy Dog":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
-        "Bathhouse - Blippy Coin":
+        "Bathhouse - Blippy":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Dustan - Meeting First Time":
@@ -351,4 +354,7 @@ def get_location_rules(player, world):
             lambda state: has_tickets(state, player, 1),  # 50$
         "Snail Shop - Small Hat":
             lambda state: has_tickets(state, player, 1),  # 50$
+        "Tadpole HQ - Skyscraper Ledge Above Elevator":
+            lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]
+                                            or state.has("Super Jump", player))
     }

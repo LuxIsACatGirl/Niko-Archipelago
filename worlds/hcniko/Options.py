@@ -154,7 +154,7 @@ class Fishsanity(Choice):
     Vanilla: Normal Here Comes Niko! behaviour
     Location: Every single fish you can fish with Fischer is a unique location
     Insanity: Same as location with the change that Fischer won't give you the item until you have all 5 fish for that level obtained.
-    So you need the item 'Hairball City Fish' 5x before being able to obtain Fischer's reward.
+    So you need the item 'Hairball City Fish' 5x before being able to obtain Fischer's reward in Hairball City.
     Check the in-game menu, to see if you have enough fish and obtained the reward from Fischer."""
     display_name = "Fishsanity"
     option_vanilla = 0
