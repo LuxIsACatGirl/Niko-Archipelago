@@ -175,14 +175,14 @@ class HereComesNikoOptions(PerGameCommonOptions):
     shuffle_garys_garden: ShuffleGarysGarden
     access_garys_garden: GarysGardenAccess
     level_based_keys: KeysLevelBased
+    cassette_logic: CassetteLogic
+    progressive_contact_list: ProgressiveContactList
+    snail_shop: SnailShopLocations
+    fishsanity: Fishsanity
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
     max_kiosk_cost: MaxKioskCost
     min_elevator_cost: MinElevatorCost
     max_elevator_cost: MaxElevatorCost
-    cassette_logic: CassetteLogic
-    progressive_contact_list: ProgressiveContactList
-    snail_shop: SnailShopLocations
-    fishsanity: Fishsanity
     start_inventory_from_pool: StartInventoryPool
     death_link: HCNDeathLink
