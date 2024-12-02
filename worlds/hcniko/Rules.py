@@ -159,13 +159,13 @@ def get_location_rules(player, world):
         "Tadpole HQ - Blippy":
             lambda state: state.has("Key", player, 7)
                           or state.has("Tadpole HQ Key", player),
-        "Hairball City - Cassette above Frog Statue":
+        "Hairball City - Above Frog Statue":
             lambda state: state.has("Key", player, 7)
                           or state.has("Hairball City Key", player),
         "Salmon Creek Forest - Inside Locked Cave":
             lambda state: state.has("Key", player, 7)
                           or state.has("Salmon Creek Forest Key", player),
-        "Bathhouse - Cassette Mahjong Hideout":
+        "Bathhouse - Mahjong Hideout":
             lambda state: state.has("Key", player, 7)
                           or state.has("Bathhouse Key", player, 2),
         "Salmon Creek Forest - Fish with Fischer":
@@ -354,7 +354,7 @@ def get_location_rules(player, world):
             lambda state: has_tickets(state, player, 1),  # 50$
         "Snail Shop - Small Hat":
             lambda state: has_tickets(state, player, 1),  # 50$
-        "Tadpole HQ - Skyscraper Ledge Above Elevator":
+        "Tadpole HQ - Ledge Above Elevator":
             lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]
                                             or state.has("Super Jump", player))
     }
