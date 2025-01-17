@@ -179,8 +179,9 @@ def get_location_rules(player, world):
             lambda state: state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1),
         "Hairball City - Moomy":
-            lambda state: state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1),
+            lambda state: (state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1))
+                          and (world.options.seedsanity.value != 2 or state.has("Hairball City Seed", player, 10)),
         "Hairball City - Game Kid":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
@@ -357,5 +358,40 @@ def get_location_rules(player, world):
             lambda state: has_tickets(state, player, 1),  # 50$
         "Tadpole HQ - Ledge Above Elevator":
             lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]
-                                            or state.has("Super Jump", player))
+                                            or state.has("Super Jump", player)),
+        # Seedsanity
+        "Hairball City - Seed 1":
+            lambda state: state.has("Contact List 1", player)
+                           or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 2":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 3":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 4":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 5":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 6":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 7":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 8":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 9":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Hairball City - Seed 10":
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
+        "Salmon Creek Forest - Moomy":
+            lambda state: (world.options.seedsanity.value != 2 or state.has("Salmon Creek Forest Seed", player, 10)),
+        "Bathhouse - Moomy":
+            lambda state: (world.options.seedsanity.value != 2 or state.has("Bathhouse Seed", player, 10)),
     }

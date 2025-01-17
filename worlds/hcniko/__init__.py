@@ -216,6 +216,7 @@ class HereComesNikoWorld(World):
             "shuffle_garden": self.options.shuffle_garys_garden.value,
             "keys": self.options.level_based_keys.value,
             "fishsanity": self.options.fishsanity.value,
+            "seedsanity": self.options.seedsanity.value,
             "garden_access": self.options.access_garys_garden.value,
             "snailshop": self.options.snail_shop.value,
             "shuffle_kiosk_reward": self.options.shuffle_kiosk_reward.value,

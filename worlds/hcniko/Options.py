@@ -153,10 +153,24 @@ class Fishsanity(Choice):
     """Need more checks or are you just insane?
     Vanilla: Normal Here Comes Niko! behaviour
     Location: Every single fish you can fish with Fischer is a unique location
-    Insanity: Same as location with the change that Fischer won't give you the item until you have all 5 fish for that level obtained.
+    Insanity: Same as location with the change that Fischer won't give you the 'Fish with Fischer' item until you have all 5 fish for that level obtained.
     So you need the item 'Hairball City Fish' 5x before being able to obtain Fischer's reward in Hairball City.
     Check the in-game menu, to see if you have enough fish and obtained the reward from Fischer."""
     display_name = "Fishsanity"
+    option_vanilla = 0
+    option_location = 1
+    option_insanity = 2
+    default = 0
+
+
+class Seedsanity(Choice):
+    """Need more checks or are you just insane?
+    Vanilla: Normal Here Comes Niko! behaviour
+    Location: Every single seed you can collect with the hamster ball is a unique location
+    Insanity: Same as location with the change that Moomy won't give you the reward for collecting all seeds until you have been sent all 10 seeds for that level.
+    So you need the item 'Hairball City Seed' 10x before being able to obtain Moomy's reward in Hairball City.
+    Check the in-game menu, to see if you have enough seeds and obtained the reward from Moomy."""
+    display_name = "Seedsanity"
     option_vanilla = 0
     option_location = 1
     option_insanity = 2
@@ -179,6 +193,7 @@ class HereComesNikoOptions(PerGameCommonOptions):
     progressive_contact_list: ProgressiveContactList
     snail_shop: SnailShopLocations
     fishsanity: Fishsanity
+    seedsanity: Seedsanity
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
     max_kiosk_cost: MaxKioskCost
