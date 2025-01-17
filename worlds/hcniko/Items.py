@@ -47,6 +47,11 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Bathhouse Key": HereComesNikoItemData(base_id + 34, type=ItemClassification.progression, num_exist=2, can_create=lambda options: options.level_based_keys.value, item_group="Keys"),
     "Tadpole HQ Key": HereComesNikoItemData(base_id + 35, type=ItemClassification.progression, can_create=lambda options: options.level_based_keys.value, item_group="Keys"),
 
+    # Seeds
+    "Hairball City Seed": HereComesNikoItemData(base_id + 36, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.seedsanity.value == 2, item_group="Seeds"),
+    "Salmon Creek Forest Seed": HereComesNikoItemData(base_id + 37, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.seedsanity.value == 2, item_group="Seeds"),
+    "Bathhouse Seed": HereComesNikoItemData(base_id + 38, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.seedsanity.value== 2, item_group="Seeds"),
+
     # Levels
     #"Home": HereComesNikoItemData(base_id + 7, type=ItemClassification.progression),
     "Hairball City Ticket": HereComesNikoItemData(base_id + 8, type=ItemClassification.progression, can_create=lambda options: options.shuffle_kiosk_reward.value, item_group="Tickets"),
