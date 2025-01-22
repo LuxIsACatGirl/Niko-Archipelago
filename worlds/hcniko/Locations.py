@@ -324,6 +324,30 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Bathhouse - Seed 9": HereComesNikoLocationData(region="Bathhouse", id=base_id + 288, can_create=lambda options: options.seedsanity.value, location_group="Moomy"),
     "Bathhouse - Seed 10": HereComesNikoLocationData(region="Bathhouse", id=base_id + 289, can_create=lambda options: options.seedsanity.value, location_group="Moomy"),
 
+    #Flowersanity
+    "Hairball City - Flowerbed 1": HereComesNikoLocationData(region="Hairball City", id=base_id + 300, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Hairball City - Flowerbed 2": HereComesNikoLocationData(region="Hairball City", id=base_id + 301, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Hairball City - Flowerbed 3": HereComesNikoLocationData(region="Hairball City", id=base_id + 302, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Turbine Town - Flowerbed 1": HereComesNikoLocationData(region="Turbine Town", id=base_id + 303, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Turbine Town - Flowerbed 2": HereComesNikoLocationData(region="Turbine Town", id=base_id + 304, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Turbine Town - Flowerbed 3": HereComesNikoLocationData(region="Turbine Town", id=base_id + 305, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Salmon Creek Forest - Flowerbed 1": HereComesNikoLocationData(region="Salmon Creek Forest", id=base_id + 306, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Salmon Creek Forest - Flowerbed 2": HereComesNikoLocationData(region="Salmon Creek Forest", id=base_id + 307, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Salmon Creek Forest - Flowerbed 3": HereComesNikoLocationData(region="Salmon Creek Forest", id=base_id + 308, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Salmon Creek Forest - Flowerbed 4": HereComesNikoLocationData(region="Salmon Creek Forest", id=base_id + 309, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Salmon Creek Forest - Flowerbed 5": HereComesNikoLocationData(region="Salmon Creek Forest", id=base_id + 310, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Salmon Creek Forest - Flowerbed 6": HereComesNikoLocationData(region="Salmon Creek Forest", id=base_id + 311, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Public Pool - Flowerbed 1": HereComesNikoLocationData(region="Public Pool", id=base_id + 312, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Public Pool - Flowerbed 2": HereComesNikoLocationData(region="Public Pool", id=base_id + 313, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Public Pool - Flowerbed 3": HereComesNikoLocationData(region="Public Pool", id=base_id + 314, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Bathhouse - Flowerbed 1": HereComesNikoLocationData(region="Bathhouse", id=base_id + 315, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Bathhouse - Flowerbed 2": HereComesNikoLocationData(region="Bathhouse", id=base_id + 316, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Bathhouse - Flowerbed 3": HereComesNikoLocationData(region="Bathhouse", id=base_id + 317, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Tadpole HQ - Flowerbed 1": HereComesNikoLocationData(region="Tadpole HQ", id=base_id + 318, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Tadpole HQ - Flowerbed 2": HereComesNikoLocationData(region="Tadpole HQ", id=base_id + 319, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Tadpole HQ - Flowerbed 3": HereComesNikoLocationData(region="Tadpole HQ", id=base_id + 320, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+    "Tadpole HQ - Flowerbed 4": HereComesNikoLocationData(region="Tadpole HQ", id=base_id + 321, can_create=lambda options: options.flowersanity.value, location_group="Flower"),
+
     # Victory
     "You're Hired!": HereComesNikoLocationData(region="Home Party", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 0),
     "Best Employee!": HereComesNikoLocationData(region="Home", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 1)
