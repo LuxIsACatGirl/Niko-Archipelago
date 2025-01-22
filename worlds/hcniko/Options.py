@@ -177,6 +177,20 @@ class Seedsanity(Choice):
     default = 0
 
 
+class Flowerbedsanity(Choice):
+    """Need more checks or are you just insane?
+    Vanilla: Normal Here Comes Niko! behaviour
+    Location: Every single flower bed is a unique location
+    Insanity: Same as location with the change that Little Gabi won't give you the reward for completing all flower beds until you have been sent all 5 flower beds for that level.
+    So you need the item 'Hairball City Flower Bed' 5x before being able to obtain Little Gabi's reward in Hairball City.
+    Check the in-game menu, to see if you have enough flower beds and obtained the reward from Little Gabi."""
+    display_name = "Flowerbedsanity"
+    option_vanilla = 0
+    option_location = 1
+    option_insanity = 2
+    default = 0
+
+
 class HCNDeathLink(DeathLink):
     """When somebody dies the level will be reloaded"""
 
@@ -194,6 +208,7 @@ class HereComesNikoOptions(PerGameCommonOptions):
     snail_shop: SnailShopLocations
     fishsanity: Fishsanity
     seedsanity: Seedsanity
+    flowersanity: Flowerbedsanity
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
     max_kiosk_cost: MaxKioskCost

@@ -219,8 +219,9 @@ def get_location_rules(player, world):
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Public Pool - Little Gabi's Flowers":
-            lambda state: state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2),
+            lambda state: (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2))
+                          and (world.options.flowersanity.value != 2 or state.has("Public Pool Flower", player, 3)),
         "Bathhouse - Fish with Fischer":
             lambda state: (state.has("Contact List 2", player)
                            or state.has("Progressive Contact List", player, 2))
@@ -229,8 +230,9 @@ def get_location_rules(player, world):
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Bathhouse - Little Gabi's Flowers":
-            lambda state: state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2),
+            lambda state: (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2))
+                          and (world.options.flowersanity.value != 2 or state.has("Bathhouse Flower", player, 3)),
         "Bathhouse - Blippy Dog":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
@@ -394,4 +396,31 @@ def get_location_rules(player, world):
             lambda state: (world.options.seedsanity.value != 2 or state.has("Salmon Creek Forest Seed", player, 10)),
         "Bathhouse - Moomy":
             lambda state: (world.options.seedsanity.value != 2 or state.has("Bathhouse Seed", player, 10)),
+        # Flowersanity
+        "Public Pool - Flowerbed 1":
+            lambda state: state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2),
+        "Public Pool - Flowerbed 2":
+            lambda state: state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2),
+        "Public Pool - Flowerbed 3":
+            lambda state: state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2),
+        "Bathhouse - Flowerbed 1":
+            lambda state: state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2),
+        "Bathhouse - Flowerbed 2":
+            lambda state: state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2),
+        "Bathhouse - Flowerbed 3":
+            lambda state: state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2),
+        "Hairball City - Little Gabi's Flowers":
+            lambda state: (world.options.flowersanity.value != 2 or state.has("Hairball City Flower", player, 3)),
+        "Turbine Town - Little Gabi's Flowers":
+            lambda state: (world.options.flowersanity.value != 2 or state.has("Turbine Town Flower", player, 3)),
+        "Salmon Creek Forest - Little Gabi's Flowers":
+            lambda state: (world.options.flowersanity.value != 2 or state.has("Salmon Creek Forest Flower", player, 6)),
+        "Tadpole HQ - Little Gabi's Flowers":
+            lambda state: (world.options.flowersanity.value != 2 or state.has("Tadpole HQ Flower", player, 4)),
     }

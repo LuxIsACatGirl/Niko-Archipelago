@@ -52,6 +52,14 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Salmon Creek Forest Seed": HereComesNikoItemData(base_id + 37, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.seedsanity.value == 2, item_group="Seeds"),
     "Bathhouse Seed": HereComesNikoItemData(base_id + 38, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.seedsanity.value== 2, item_group="Seeds"),
 
+    # Flowers
+    "Hairball City Flower": HereComesNikoItemData(base_id + 40, type=ItemClassification.progression, num_exist=3, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+    "Turbine Town Flower": HereComesNikoItemData(base_id + 41, type=ItemClassification.progression, num_exist=3, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+    "Salmon Creek Forest Flower": HereComesNikoItemData(base_id + 42, type=ItemClassification.progression, num_exist=6, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+    "Public Pool Flower": HereComesNikoItemData(base_id + 43, type=ItemClassification.progression, num_exist=3, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+    "Bathhouse Flower": HereComesNikoItemData(base_id + 44, type=ItemClassification.progression, num_exist=3, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+    "Tadpole HQ Flower": HereComesNikoItemData(base_id + 45, type=ItemClassification.progression, num_exist=4, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+
     # Levels
     #"Home": HereComesNikoItemData(base_id + 7, type=ItemClassification.progression),
     "Hairball City Ticket": HereComesNikoItemData(base_id + 8, type=ItemClassification.progression, can_create=lambda options: options.shuffle_kiosk_reward.value, item_group="Tickets"),
