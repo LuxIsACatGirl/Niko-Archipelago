@@ -68,7 +68,7 @@ class GarysGardenAccess(Choice):
     Tadpole HQ: Gary's Garden will be accessible when Tadpole HQ is accessible.
     Tadpole HQ & Gary's Garden: Gary's Garden won't be accessible until Tadpole HQ Ticket & Gary's Garden Ticket are obtained.
     Gary's Garden: Gary's Garden will be accessible in 'Home' when Gary's Garden Ticket has been obtained."""
-    display_name = "Shuffle Gary's Garden"
+    display_name = "Gary's Garden Access"
     option_tadpole_hq = 0
     option_tadpole_and_garden = 1
     option_garden = 2
@@ -128,13 +128,13 @@ class MaxElevatorCost(Range):
 class CassetteLogic(Choice):
     """This changes how Mitch & Mai work
 
-    levelbased: Hairball City Mitch/Mai want 5/10 Cassettes, Turbine Town Mitch/Mai want 15/20, SCF Mitch/Mai want 25/30,
-    Public Pool Mitch/Mai want 35/40, Bathhouse Mitch/Mai want 45/50, Tadpole HQ Mitch/Mai want 55/60 and (if enabled) Gary's Garden Mitch/Mai want 65/70.
+    LevelBased: Cassettes have been split up into level specific variants.
+    So you need 'Hairball City Cassette' 5x/10x to trade with Mitch/Mai in Hairball City.
     Scattered: Prices are randomly shuffled between all Mitch & Mai Locations"""
-    #"Progressive: !!NOT IMPLEMENTED!! Mitch/Mai will need progressively more Cassettes. 5 -> 10 -> 15 -> 20 -> 25 | Level doesn't matter."
+    "Progressive: Mitch/Mai will need progressively more Cassettes. 5 -> 10 -> 15 -> 20 -> 25 | Level doesn't matter."
     display_name = "Cassette Logic"
     option_Level_Based = 0
-    #option_progressive = 1
+    option_progressive = 1
     option_scattered = 2
     default = 2
 
@@ -181,14 +181,28 @@ class Flowerbedsanity(Choice):
     """Need more checks or are you just insane?
     Vanilla: Normal Here Comes Niko! behaviour
     Location: Every single flower bed is a unique location
-    Insanity: Same as location with the change that Little Gabi won't give you the reward for completing all flower beds until you have been sent all 5 flower beds for that level.
-    So you need the item 'Hairball City Flower Bed' 5x before being able to obtain Little Gabi's reward in Hairball City.
-    Check the in-game menu, to see if you have enough flower beds and obtained the reward from Little Gabi."""
-    display_name = "Flowerbedsanity"
+    Insanity: Same as location with the change that Little Gabi won't give you the reward for completing all flower beds until you have been sent all flowers for that level.
+    So you need the item 'Hairball City Flower' 3x before being able to obtain Little Gabi's reward in Hairball City.
+    Check the in-game menu, to see if you have enough flowers and obtained the reward from Little Gabi."""
+    display_name = "Flowersanity"
     option_vanilla = 0
     option_location = 1
     option_insanity = 2
     default = 0
+
+
+class Applesanity(Toggle):
+    """Need more checks or are you just insane?
+    When enabled, freestanding apples will be randomized.
+    This adds ~290 locations."""
+    display_name = "Applesanity"
+
+
+# class NPCsanity(Toggle):
+#     """Need more checks or are you just insane?
+#     When enabled, NPCs will be randomized, and will contain items, but you will need to unlock them with the corresponding item.
+#     So you need the item 'Hairball City NPCs' to unlock them and be able to talk to them."""
+#     display_name = "NPCsanity"
 
 
 class HCNDeathLink(DeathLink):
@@ -209,6 +223,8 @@ class HereComesNikoOptions(PerGameCommonOptions):
     fishsanity: Fishsanity
     seedsanity: Seedsanity
     flowersanity: Flowerbedsanity
+    applesanity: Applesanity
+#    npcsanity: NPCsanity
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
     max_kiosk_cost: MaxKioskCost
