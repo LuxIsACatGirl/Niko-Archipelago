@@ -130,8 +130,8 @@ class CassetteLogic(Choice):
 
     LevelBased: Cassettes have been split up into level specific variants.
     So you need 'Hairball City Cassette' 5x/10x to trade with Mitch/Mai in Hairball City.
-    Scattered: Prices are randomly shuffled between all Mitch & Mai Locations"""
-    "Progressive: Mitch/Mai will need progressively more Cassettes. 5 -> 10 -> 15 -> 20 -> 25 | Level doesn't matter."
+    Scattered: Prices are randomly shuffled between all Mitch & Mai Locations.
+    Progressive: Mitch/Mai will need progressively more Cassettes. 5 -> 10 -> 15 -> 20 -> 25 | Level doesn't matter."""
     display_name = "Cassette Logic"
     option_Level_Based = 0
     option_progressive = 1
