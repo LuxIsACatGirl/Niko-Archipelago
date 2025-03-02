@@ -70,18 +70,21 @@ class HereComesNikoWorld(World):
     def generate_early(self):
         adjust_options(self)
         # Random starting Ticket
+        tickets = [
+            "Hairball City Ticket",
+            "Turbine Town Ticket",
+            "Salmon Creek Forest Ticket",
+            "Public Pool Ticket",
+            "Bathhouse Ticket",
+            "Tadpole HQ Ticket"
+        ]
         if self.options.start_with_ticket.value:
-            tickets = [
-                "Hairball City Ticket",
-                "Turbine Town Ticket",
-                "Salmon Creek Forest Ticket",
-                "Public Pool Ticket",
-                "Bathhouse Ticket",
-                "Tadpole HQ Ticket"
-            ]
             self.selected_ticket = self.random.choice(tickets)
             self.multiworld.push_precollected(self.create_item(self.selected_ticket))
-
+        else:
+            # Place one of the tickets early so there are no fill errors
+            early_ticket = self.random.choice(tickets)
+            self.multiworld.early_items[self.player][early_ticket] = 1
     def create_item(self, name: str) -> HereComesNikoItem:
         return HereComesNikoItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
 
@@ -161,7 +164,8 @@ class HereComesNikoWorld(World):
                 mw.get_location(location, player).place_locked_item(self.create_item(ticket))
 
     def get_filler_item_name(self) -> str:
-        return "25 Apples"
+        filler_items = [item for item, data in item_data_table.items() if data.type == ItemClassification.filler]
+        return self.random.choice(filler_items)
 
     def set_rules(self) -> None:
         player = self.player
@@ -218,6 +222,8 @@ class HereComesNikoWorld(World):
             "fishsanity": self.options.fishsanity.value,
             "seedsanity": self.options.seedsanity.value,
             "flowersanity": self.options.flowersanity.value,
+            "applessanity": self.options.applesanity.value,
+            #"npcsanity": self.options.npcsanity.value,
             "garden_access": self.options.access_garys_garden.value,
             "snailshop": self.options.snail_shop.value,
             "shuffle_kiosk_reward": self.options.shuffle_kiosk_reward.value,

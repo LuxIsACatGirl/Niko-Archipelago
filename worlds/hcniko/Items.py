@@ -23,13 +23,13 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_skip_balancing, num_exist=71),
     "Key": HereComesNikoItemData(base_id + 2, type=ItemClassification.progression, num_exist=9, can_create=lambda options: not options.level_based_keys.value, item_group="Keys"),
     "Letter": HereComesNikoItemData(base_id + 7, type=ItemClassification.filler),
-    "25 Apples": HereComesNikoItemData(base_id + 3, type=ItemClassification.filler),
+    "Apples": HereComesNikoItemData(base_id + 3, type=ItemClassification.filler),
     "Contact List 1": HereComesNikoItemData(base_id + 4, type=ItemClassification.progression, num_exist=1, can_create=lambda options: not options.progressive_contact_list.value, item_group="Contact List"),
     "Contact List 2": HereComesNikoItemData(base_id + 5, type=ItemClassification.progression, num_exist=1, can_create=lambda options: not options.progressive_contact_list.value, item_group="Contact List"),
     "Progressive Contact List": HereComesNikoItemData(base_id + 15, type=ItemClassification.progression, num_exist=2, can_create=lambda options: options.progressive_contact_list.value, item_group="Contact List"),
     "Super Jump": HereComesNikoItemData(base_id + 6, type=ItemClassification.useful, num_exist=1),
-    "10 Bugs": HereComesNikoItemData(base_id + 14, type=ItemClassification.filler),
-    "1000 Snail Dollar": HereComesNikoItemData(base_id + 16, type=ItemClassification.filler),
+    "Bugs": HereComesNikoItemData(base_id + 14, type=ItemClassification.filler),
+    "Snail Money": HereComesNikoItemData(base_id + 16, type=ItemClassification.filler),
 
     # Fishsanity
     "Hairball City Fish": HereComesNikoItemData(base_id + 20, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
@@ -59,6 +59,14 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Public Pool Flower": HereComesNikoItemData(base_id + 43, type=ItemClassification.progression, num_exist=3, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
     "Bathhouse Flower": HereComesNikoItemData(base_id + 44, type=ItemClassification.progression, num_exist=3, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
     "Tadpole HQ Flower": HereComesNikoItemData(base_id + 45, type=ItemClassification.progression, num_exist=4, can_create=lambda options: options.flowersanity.value == 2, item_group="Flowers"),
+
+    # NPCs
+    # "Hairball City NPCs": HereComesNikoItemData(base_id + 46, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
+    # "Turbine Town NPCs": HereComesNikoItemData(base_id + 47, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
+    # "Salmon Creek Forest NPCs": HereComesNikoItemData(base_id + 48, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
+    # "Public Pool NPCs": HereComesNikoItemData(base_id + 49, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
+    # "Bathhouse NPCs": HereComesNikoItemData(base_id + 50, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
+    # "Tadpole HQ NPCs": HereComesNikoItemData(base_id + 51, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
 
     # Levels
     #"Home": HereComesNikoItemData(base_id + 7, type=ItemClassification.progression),

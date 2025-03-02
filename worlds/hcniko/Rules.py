@@ -1,5 +1,5 @@
 TICKETS = ["Hairball City Ticket", "Turbine Town Ticket", "Salmon Creek Forest Ticket", "Public Pool Ticket",
-           "Bathhouse Ticket", "Tadpole HQ Ticket"]
+           "Bathhouse Ticket", "Tadpole HQ Ticket", "Gary's Garden Ticket"]
 
 
 def has_all_coins(state, player):
@@ -265,7 +265,9 @@ def get_location_rules(player, world):
         "Salmon Creek Forest - Mai":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Salmon Creek Forest - Mai"])
                           and (state.has("Key", player, 7)
-                          or state.has("Salmon Creek Forest Key", player)),
+                          or state.has("Salmon Creek Forest Key", player))
+                          and (state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1)),
         "Salmon Creek Forest - Mitch":
             lambda state: has_enough_cassettes(state, player, world.cassette_cost["Salmon Creek Forest - Mitch"]),
         "Public Pool - Mitch":
@@ -423,4 +425,188 @@ def get_location_rules(player, world):
             lambda state: (world.options.flowersanity.value != 2 or state.has("Salmon Creek Forest Flower", player, 6)),
         "Tadpole HQ - Little Gabi's Flowers":
             lambda state: (world.options.flowersanity.value != 2 or state.has("Tadpole HQ Flower", player, 4)),
+        # Progressive Cassette Logic
+        "Mitch/Mai - 1":
+            lambda state: has_enough_cassettes(state, player, 1)
+                          and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 2":
+            lambda state: has_enough_cassettes(state, player, 2) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 3":
+            lambda state: has_enough_cassettes(state, player, 3) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 4":
+            lambda state: has_enough_cassettes(state, player, 4) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 5":
+            lambda state: has_enough_cassettes(state, player, 5) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 6":
+            lambda state: has_enough_cassettes(state, player, 6) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 7":
+            lambda state: has_enough_cassettes(state, player, 7) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 8":
+            lambda state: has_enough_cassettes(state, player, 8) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 9":
+            lambda state: has_enough_cassettes(state, player, 9) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 10":
+            lambda state: has_enough_cassettes(state, player, 10) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 11":
+            lambda state: has_enough_cassettes(state, player, 11) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 12":
+            lambda state: has_enough_cassettes(state, player, 12) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 13":
+            lambda state: has_enough_cassettes(state, player, 13) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
+        "Mitch/Mai - 14":
+            lambda state: has_enough_cassettes(state, player, 14) and ((state.has("Hairball City Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Turbine Town Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)))
+                          or (state.has("Salmon Creek Forest Ticket", player)
+                               and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1))
+                               and (state.has("Key", player, 7) or state.has("Salmon Creek Forest Key", player)))
+                          or (state.has("Public Pool Ticket", player)
+                               and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)))
+                          or (state.has("Bathhouse Ticket", player))
+                          or (state.has("Tadpole HQ Ticket", player))
+                          or (state.has("Gary's Garden Ticket", player))),
     }
