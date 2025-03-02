@@ -20,7 +20,7 @@ base_id = 598_145_444_000
 
 item_data_table: Dict[str, HereComesNikoItemData] = {
     "Coin": HereComesNikoItemData(base_id, type=ItemClassification.progression_skip_balancing, num_exist=79),
-    "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_skip_balancing, num_exist=71),
+    "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_skip_balancing, can_create=lambda options: options.cassette_logic.value != 0, num_exist=71),
     "Key": HereComesNikoItemData(base_id + 2, type=ItemClassification.progression, num_exist=9, can_create=lambda options: not options.level_based_keys.value, item_group="Keys"),
     "Letter": HereComesNikoItemData(base_id + 7, type=ItemClassification.filler),
     "Apples": HereComesNikoItemData(base_id + 3, type=ItemClassification.filler),
@@ -68,6 +68,14 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     # "Bathhouse NPCs": HereComesNikoItemData(base_id + 50, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
     # "Tadpole HQ NPCs": HereComesNikoItemData(base_id + 51, type=ItemClassification.progression, can_create=lambda options: options.npcsanity.value, item_group="NPCs"),
 
+    # Level Based Cassettes
+    "Hairball City Cassette": HereComesNikoItemData(base_id + 52, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0, item_group="Cassettes"),
+    "Turbine Town Cassette": HereComesNikoItemData(base_id + 53, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0, item_group="Cassettes"),
+    "Salmon Creek Forest Cassette": HereComesNikoItemData(base_id + 54, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0, item_group="Cassettes"),
+    "Public Pool Cassette": HereComesNikoItemData(base_id + 55, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0, item_group="Cassettes"),
+    "Bathhouse Cassette": HereComesNikoItemData(base_id + 56, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0, item_group="Cassettes"),
+    "Tadpole HQ Cassette": HereComesNikoItemData(base_id + 57, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0, item_group="Cassettes"),
+    "Gary's Garden Cassette": HereComesNikoItemData(base_id + 58, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.cassette_logic.value == 0 and options.shuffle_garys_garden.value, item_group="Cassettes"),
     # Levels
     #"Home": HereComesNikoItemData(base_id + 7, type=ItemClassification.progression),
     "Hairball City Ticket": HereComesNikoItemData(base_id + 8, type=ItemClassification.progression, can_create=lambda options: options.shuffle_kiosk_reward.value, item_group="Tickets"),
