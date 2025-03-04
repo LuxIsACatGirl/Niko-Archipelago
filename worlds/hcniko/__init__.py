@@ -69,6 +69,8 @@ class HereComesNikoWorld(World):
 
     def generate_early(self):
         adjust_options(self)
+        if self.options.shuffle_kiosk_reward == 0:
+            self.options.tickets_on_kiosk.value = 0
         # Random starting Ticket
         tickets = [
             "Hairball City Ticket",
@@ -102,8 +104,9 @@ class HereComesNikoWorld(World):
         if not self.options.shuffle_garys_garden.value:
             for _ in range(3):
                 item_pool.remove(self.create_item("Coin"))
-            for _ in range(10):
-                item_pool.remove(self.create_item("Cassette"))
+            if self.options.cassette_logic.value != 0:
+                for _ in range(10):
+                    item_pool.remove(self.create_item("Cassette"))
         if self.options.goal_completion.value == 1:
             coins_needed = 76
         else:
