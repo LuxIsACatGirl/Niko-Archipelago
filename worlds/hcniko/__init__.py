@@ -1,4 +1,4 @@
-from typing import List, Dict, TextIO
+from typing import List, Dict, TextIO, Any
 
 from BaseClasses import MultiWorld
 from BaseClasses import Region, Tutorial, ItemClassification
@@ -40,6 +40,7 @@ class HereComesNikoWorld(World):
 
     def __init__(self, multiworld: "MultiWorld", player: int):
         super().__init__(multiworld, player)
+        self.selected_ticket = None
         self.kiosk_cost: Dict[str, int] = {
             "Kiosk Home": 0,
             "Kiosk Hairball City": 0,
@@ -69,8 +70,8 @@ class HereComesNikoWorld(World):
 
     def generate_early(self):
         adjust_options(self)
-        if self.options.shuffle_kiosk_reward == 0:
-            self.options.tickets_on_kiosk.value = 0
+        # if self.options.shuffle_kiosk_reward == 0:
+        #     self.options.tickets_on_kiosk.value = 0
         # Random starting Ticket
         tickets = [
             "Hairball City Ticket",
@@ -87,6 +88,69 @@ class HereComesNikoWorld(World):
             # Place one of the tickets early so there are no fill errors
             early_ticket = self.random.choice(tickets)
             self.multiworld.early_items[self.player][early_ticket] = 1
+
+        # Universal tracker stuff, shouldn't do anything in standard gen
+        if hasattr(self.multiworld, "re_gen_passthrough"):
+            if "Here Comes Niko!" in self.multiworld.re_gen_passthrough:
+                passthrough = self.multiworld.re_gen_passthrough["Here Comes Niko!"]
+                self.options.start_with_ticket.value = passthrough["start_with_ticket"]
+                self.options.shuffle_garys_garden.value = passthrough["shuffle_garden"]
+                self.options.level_based_keys.value = passthrough["key_level"]
+                self.options.fishsanity.value = passthrough["fishsanity"]
+                self.options.seedsanity.value = passthrough["seedsanity"]
+                self.options.flowersanity.value = passthrough["flowersanity"]
+                self.options.applesanity.value = passthrough["applessanity"]
+                self.options.access_garys_garden.value = passthrough["garden_access"]
+                self.options.snail_shop.value = passthrough["snailshop"]
+                self.options.shuffle_kiosk_reward.value = passthrough["shuffle_kiosk_reward"]
+                self.options.cassette_logic.value = passthrough["cassette_logic"]
+                self.options.enable_achievements.value = passthrough["achievements"]
+                self.options.shuffle_handsome_frog.value = passthrough["handsome_frog"]
+                self.options.goal_completion.value = passthrough["goal_completion"]
+                self.kiosk_cost["Kiosk Home"] = passthrough["kioskhome"]
+                self.kiosk_cost["Kiosk Hairball City"] = passthrough["kioskhc"]
+                self.kiosk_cost["Kiosk Turbine Town"] = passthrough["kiosktt"]
+                self.kiosk_cost["Kiosk Salmon Creek Forest"] = passthrough["kiosksfc"]
+                self.kiosk_cost["Kiosk Public Pool"] = passthrough["kioskpp"]
+                self.kiosk_cost["Kiosk Bathhouse"] = passthrough["kioskbath"]
+                self.kiosk_cost["Elevator"] = passthrough["kioskhq"]
+                if self.options.cassette_logic == 0:
+                    self.cassette_cost["Hairball City - Mitch"] = passthrough["chc1"]
+                    self.cassette_cost["Hairball City - Mai"] = passthrough["chc2"]
+                    self.cassette_cost["Turbine Town - Mitch"] = passthrough["ctt1"]
+                    self.cassette_cost["Turbine Town - Mai"] = passthrough["ctt2"]
+                    self.cassette_cost["Salmon Creek Forest - Mitch"] = int(passthrough["csfc1"])
+                    self.cassette_cost["Salmon Creek Forest - Mai"] = passthrough["csfc2"]
+                    self.cassette_cost["Public Pool - Mitch"] = passthrough["cpp1"]
+                    self.cassette_cost["Public Pool - Mai"] = passthrough["cpp2"]
+                    self.cassette_cost["Bathhouse - Mitch"] = passthrough["cbath1"]
+                    self.cassette_cost["Bathhouse - Mai"] = passthrough["cbath2"]
+                    self.cassette_cost["Tadpole HQ - Mitch"] = passthrough["chq1"]
+                    self.cassette_cost["Tadpole HQ - Mai"] = passthrough["chq2"]
+                    self.cassette_cost["Gary's Garden - Mitch"] = passthrough["cgg1"]
+                    self.cassette_cost["Gary's Garden - Mai"] = passthrough["cgg2"]
+                else:
+                    self.cassette_cost["Hairball City - Mitch"] = passthrough["chc1"] * 5
+                    self.cassette_cost["Hairball City - Mai"] = passthrough["chc2"] * 5
+                    self.cassette_cost["Turbine Town - Mitch"] = passthrough["ctt1"] * 5
+                    self.cassette_cost["Turbine Town - Mai"] = passthrough["ctt2"] * 5
+                    self.cassette_cost["Salmon Creek Forest - Mitch"] = passthrough["csfc1"] * 5
+                    self.cassette_cost["Salmon Creek Forest - Mai"] = passthrough["csfc2"] * 5
+                    self.cassette_cost["Public Pool - Mitch"] = passthrough["cpp1"] * 5
+                    self.cassette_cost["Public Pool - Mai"] = passthrough["cpp2"] * 5
+                    self.cassette_cost["Bathhouse - Mitch"] = passthrough["cbath1"] * 5
+                    self.cassette_cost["Bathhouse - Mai"] = passthrough["cbath2"] * 5
+                    self.cassette_cost["Tadpole HQ - Mitch"] = passthrough["chq1"] * 5
+                    self.cassette_cost["Tadpole HQ - Mai"] = passthrough["chq2"] * 5
+                    self.cassette_cost["Gary's Garden - Mitch"] = passthrough["cgg1"] * 5
+                    self.cassette_cost["Gary's Garden - Mai"] = passthrough["cgg2"] * 5
+
+                for i in self.kiosk_cost:
+                    print("%s Cost: %i\n" % (i, self.kiosk_cost[i]))
+                for i in self.cassette_cost:
+                    real_cassette_cost = self.cassette_cost[i]
+                    print("%s Cassette Cost: %i\n" % (i, real_cassette_cost))
+
     def create_item(self, name: str) -> HereComesNikoItem:
         return HereComesNikoItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
 
@@ -98,6 +162,8 @@ class HereComesNikoWorld(World):
         for name, item in item_data_table.items():
             item_pool_count[name] = 0
             if item.id and item.can_create(self.options):
+                if item.type in {ItemClassification.filler, ItemClassification.trap}:
+                    continue
                 while item_pool_count[name] < item.num_exist:
                     item_pool.append(self.create_item(name))
                     item_pool_count[name] += 1
@@ -167,7 +233,7 @@ class HereComesNikoWorld(World):
                 mw.get_location(location, player).place_locked_item(self.create_item(ticket))
 
     def get_filler_item_name(self) -> str:
-        filler_items = [item for item, data in item_data_table.items() if data.type == ItemClassification.filler]
+        filler_items = [item for item, data in item_data_table.items() if data.type in {ItemClassification.filler, ItemClassification.trap}]
         return self.random.choice(filler_items)
 
     def set_rules(self) -> None:
@@ -194,10 +260,13 @@ class HereComesNikoWorld(World):
         for i in self.kiosk_cost:
             spoiler_handle.write("%s Cost: %i\n" %(i, self.kiosk_cost[i]))
         for i in self.cassette_cost:
-            real_cassette_cost = self.cassette_cost[i] * 5
+            if self.options.cassette_logic == 0:
+                real_cassette_cost = self.cassette_cost[i]
+            else:
+                real_cassette_cost = self.cassette_cost[i] * 5
             spoiler_handle.write(f"%s Cassette Cost: %i\n" %(i, real_cassette_cost))
 
-    def fill_slot_data(self):
+    def fill_slot_data(self) -> Dict[str, Any]:
         return  {
             "kioskhome": self.kiosk_cost["Kiosk Home"],
             "kioskhc": self.kiosk_cost["Kiosk Hairball City"],
@@ -221,7 +290,6 @@ class HereComesNikoWorld(World):
             "cgg1": self.cassette_cost["Gary's Garden - Mitch"],
             "cgg2": self.cassette_cost["Gary's Garden - Mai"],
             "shuffle_garden": self.options.shuffle_garys_garden.value,
-            "keys": self.options.level_based_keys.value,
             "fishsanity": self.options.fishsanity.value,
             "seedsanity": self.options.seedsanity.value,
             "flowersanity": self.options.flowersanity.value,
@@ -231,8 +299,16 @@ class HereComesNikoWorld(World):
             "snailshop": self.options.snail_shop.value,
             "shuffle_kiosk_reward": self.options.shuffle_kiosk_reward.value,
             "start_with_ticket": self.options.start_with_ticket.value,
+            "handsome_frog": self.options.shuffle_handsome_frog.value,
+            "achievements": self.options.enable_achievements.value,
             "goal_completion": self.options.goal_completion.value,
             "cassette_logic": self.options.cassette_logic.value,
             "key_level": self.options.level_based_keys.value,
             "death_link": self.options.death_link.value
         }
+
+    # for the universal tracker, doesn't get called in standard gen
+    @staticmethod
+    def interpret_slot_data(slot_data: Dict[str, Any]) -> Dict[str, Any]:
+        # returning slot_data so it regens, giving it back in multiworld.re_gen_passthrough
+        return slot_data

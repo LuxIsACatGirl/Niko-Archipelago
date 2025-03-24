@@ -22,7 +22,7 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Coin": HereComesNikoItemData(base_id, type=ItemClassification.progression_skip_balancing, num_exist=79),
     "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_skip_balancing, can_create=lambda options: options.cassette_logic.value != 0, num_exist=71),
     "Key": HereComesNikoItemData(base_id + 2, type=ItemClassification.progression, num_exist=9, can_create=lambda options: not options.level_based_keys.value, item_group="Keys"),
-    "Letter": HereComesNikoItemData(base_id + 7, type=ItemClassification.filler),
+    "Letter": HereComesNikoItemData(base_id + 7, type=ItemClassification.filler, num_exist=13),
     "Apples": HereComesNikoItemData(base_id + 3, type=ItemClassification.filler),
     "Contact List 1": HereComesNikoItemData(base_id + 4, type=ItemClassification.progression, num_exist=1, can_create=lambda options: not options.progressive_contact_list.value, item_group="Contact List"),
     "Contact List 2": HereComesNikoItemData(base_id + 5, type=ItemClassification.progression, num_exist=1, can_create=lambda options: not options.progressive_contact_list.value, item_group="Contact List"),
@@ -30,6 +30,11 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Super Jump": HereComesNikoItemData(base_id + 6, type=ItemClassification.useful, num_exist=1),
     "Bugs": HereComesNikoItemData(base_id + 14, type=ItemClassification.filler),
     "Snail Money": HereComesNikoItemData(base_id + 16, type=ItemClassification.filler),
+    "Speed Boost": HereComesNikoItemData(base_id + 18, type=ItemClassification.filler),
+    "Freeze Trap": HereComesNikoItemData(base_id + 70, type=ItemClassification.trap),
+    "Iron Boots Trap": HereComesNikoItemData(base_id + 71, type=ItemClassification.trap),
+    "Whoops! Trap": HereComesNikoItemData(base_id + 72, type=ItemClassification.trap),
+    "My Turn! Trap": HereComesNikoItemData(base_id + 73, type=ItemClassification.trap),
 
     # Fishsanity
     "Hairball City Fish": HereComesNikoItemData(base_id + 20, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),

@@ -138,8 +138,12 @@ def get_location_rules(player, world):
             lambda state: state.has("Hairball City Ticket", player)
                           and state.has("Turbine Town Ticket", player)
                           and state.has("Salmon Creek Forest Ticket", player)
+                          and (state.has("Key", player, 7)
+                          or state.has("Salmon Creek Forest Key", player))
                           and state.has("Public Pool Ticket", player)
-                          and state.has("Bathhouse Ticket", player),
+                          and state.has("Bathhouse Ticket", player)
+                          and state.has("Tadpole HQ Ticket", player)
+                          and can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]),
         "Achievement - Hopeless Romantic":
             lambda state: state.has("Hairball City Ticket", player)
                           and state.has("Turbine Town Ticket", player)
@@ -382,8 +386,7 @@ def get_location_rules(player, world):
         "Snail Shop - Small Hat":
             lambda state: has_tickets(state, player, 1),  # 50$
         "Tadpole HQ - Ledge Above Elevator":
-            lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]
-                                            or state.has("Super Jump", player)),
+            lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]),
         # Seedsanity
         "Hairball City - Seed 1":
             lambda state: state.has("Contact List 1", player)
