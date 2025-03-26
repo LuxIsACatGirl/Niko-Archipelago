@@ -66,7 +66,9 @@ class ShuffleGarysGarden(DefaultOnToggle):
 class GarysGardenAccess(Choice):
     """Changes when Gary's Garden is accessible.
     Tadpole HQ: Gary's Garden will be accessible when Tadpole HQ is accessible.
+    -----------------------------------------------------------
     Tadpole HQ & Gary's Garden: Gary's Garden won't be accessible until Tadpole HQ Ticket & Gary's Garden Ticket are obtained.
+    -----------------------------------------------------------
     Gary's Garden: Gary's Garden will be accessible in 'Home' when Gary's Garden Ticket has been obtained."""
     display_name = "Gary's Garden Access"
     option_tadpole_hq = 0
@@ -130,8 +132,14 @@ class CassetteLogic(Choice):
 
     LevelBased: Cassettes have been split up into level specific variants.
     So you need 'Hairball City Cassette' 5x/10x to trade with Mitch/Mai in Hairball City.
-    Scattered: Prices are randomly shuffled between all Mitch & Mai Locations.
-    Progressive: Mitch/Mai will need progressively more Cassettes. 5 -> 10 -> 15 -> 20 -> 25 | Level doesn't matter."""
+    -----------------------------------------------------------
+    Progressive: Mitch and Mai require increasing numbers of cassettes to unlock their locations.
+    Unlock order is fixed: The number of cassettes needed progresses incrementally -> 5 -> 10 -> 15 -> 20 -> 25.
+    The in-game Cassette Tracker shows from left to right your progress.
+    When you buy the first progressive unlock, the first Mitch/Mai icon will be marked as purchased.
+    If Gary's Garden is shuffled -> The tracker starts at Gary's Garden. If not shuffled -> The tracker starts at Hairball City.
+    -----------------------------------------------------------
+    Scattered: Prices are randomly shuffled between all Mitch & Mai Locations."""
     display_name = "Cassette Logic"
     option_Level_Based = 0
     option_progressive = 1
@@ -152,7 +160,9 @@ class SnailShopLocations(Toggle):
 class Fishsanity(Choice):
     """Need more checks or are you just insane?
     Vanilla: Normal Here Comes Niko! behaviour
+    -----------------------------------------------------------
     Location: Every single fish you can fish with Fischer is a unique location
+    -----------------------------------------------------------
     Insanity: Same as location with the change that Fischer won't give you the 'Fish with Fischer' item until you have all 5 fish for that level obtained.
     So you need the item 'Hairball City Fish' 5x before being able to obtain Fischer's reward in Hairball City.
     Check the in-game menu, to see if you have enough fish and obtained the reward from Fischer."""
@@ -166,7 +176,9 @@ class Fishsanity(Choice):
 class Seedsanity(Choice):
     """Need more checks or are you just insane?
     Vanilla: Normal Here Comes Niko! behaviour
+    -----------------------------------------------------------
     Location: Every single seed you can collect with the hamster ball is a unique location
+    -----------------------------------------------------------
     Insanity: Same as location with the change that Moomy won't give you the reward for collecting all seeds until you have been sent all 10 seeds for that level.
     So you need the item 'Hairball City Seed' 10x before being able to obtain Moomy's reward in Hairball City.
     Check the in-game menu, to see if you have enough seeds and obtained the reward from Moomy."""
@@ -180,7 +192,9 @@ class Seedsanity(Choice):
 class Flowerbedsanity(Choice):
     """Need more checks or are you just insane?
     Vanilla: Normal Here Comes Niko! behaviour
+    -----------------------------------------------------------
     Location: Every single flower bed is a unique location
+    -----------------------------------------------------------
     Insanity: Same as location with the change that Little Gabi won't give you the reward for completing all flower beds until you have been sent all flowers for that level.
     So you need the item 'Hairball City Flower' 3x before being able to obtain Little Gabi's reward in Hairball City.
     Check the in-game menu, to see if you have enough flowers and obtained the reward from Little Gabi."""
