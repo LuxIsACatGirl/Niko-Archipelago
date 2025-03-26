@@ -114,7 +114,7 @@ class HereComesNikoWorld(World):
                 self.kiosk_cost["Kiosk Public Pool"] = passthrough["kioskpp"]
                 self.kiosk_cost["Kiosk Bathhouse"] = passthrough["kioskbath"]
                 self.kiosk_cost["Elevator"] = passthrough["kioskhq"]
-                if self.options.cassette_logic == 0:
+                if self.options.cassette_logic.value == 0:
                     self.cassette_cost["Hairball City - Mitch"] = passthrough["chc1"]
                     self.cassette_cost["Hairball City - Mai"] = passthrough["chc2"]
                     self.cassette_cost["Turbine Town - Mitch"] = passthrough["ctt1"]
