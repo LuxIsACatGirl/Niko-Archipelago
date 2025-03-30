@@ -1,20 +1,22 @@
+from BaseClasses import CollectionState
+
 TICKETS = ["Hairball City Ticket", "Turbine Town Ticket", "Salmon Creek Forest Ticket", "Public Pool Ticket",
            "Bathhouse Ticket", "Tadpole HQ Ticket", "Gary's Garden Ticket"]
 
 
-def has_all_coins(state, player):
+def has_all_coins(state: CollectionState, player):
     return state.has("Coin", player, 76)
 
 
-def can_talk_to_peper(state, player, int):
-    return state.has("Coin", player, int)
+def can_talk_to_peper(state: CollectionState, player, count: int):
+    return state.has("Coin", player, count)
 
 
-def has_enough_cassettes(state, player, int):
-    return state.has("Cassette", player, int * 5)
+def has_enough_cassettes(state: CollectionState, player, count: int):
+    return state.has("Cassette", player, count * 5)
 
 
-def has_all_tickets(state, player):
+def has_all_tickets(state: CollectionState, player):
     return (state.has("Hairball City Ticket", player)
             and state.has("Turbine Town Ticket", player)
             and state.has("Salmon Creek Forest Ticket", player)
@@ -23,12 +25,12 @@ def has_all_tickets(state, player):
             and state.has("Tadpole HQ Ticket", player))
 
 
-def has_tickets(state, player, required_tickets):
+def has_tickets(state: CollectionState, player, required_tickets):
     ticket_count = sum(1 for ticket in TICKETS if state.has(ticket, player))
     return ticket_count >= required_tickets
 
 
-def has_access_garden(state, player, world):
+def has_access_garden(state: CollectionState, player, world):
     access_option = world.options.access_garys_garden.value
     if access_option == 1:
         return state.has("Gary's Garden Ticket", player) and state.has("Tadpole HQ Ticket", player)
@@ -253,7 +255,9 @@ def get_location_rules(player, world):
                           or state.has("Progressive Contact List", player, 2)),
         "Dustan - Meeting First Time":
             lambda state: state.has("Hairball City Ticket", player)
-                          or state.has("Turbine Town Ticket", player)
+                          or (state.has("Turbine Town Ticket", player)
+                          and (state.has("Key", player, 7)
+                          or state.has("Turbine Town Key", player)))
                           or state.has("Salmon Creek Forest Ticket", player)
                           or state.has("Bathhouse Ticket", player),
         # Cassette
