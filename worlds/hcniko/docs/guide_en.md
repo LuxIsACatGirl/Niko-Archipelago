@@ -10,8 +10,6 @@
 
 ### Install BepInEx
 
-### Install BepInEx
-
 1. Download [BepInEx 5.4.21 (Unity Mono x64)](https://github.com/BepInEx/BepInEx/tree/v5.4.21)
 2. Extract the contents of the BepInEx .zip file into your Here Comes Niko! game directory:
    - Default Steam path: `C:\Program Files (x86)\Steam\steamapps\common\Here Comes Niko`
@@ -30,7 +28,6 @@
 
 1. Open the in-game menu and click on the **Archipelago logo**.
 2. Enter your **connection information** on the left side.
-   - Example connection format: `server:port` (e.g., `archipelago.example.com:1234`).
 3. Click **Connect**—you should load into **Home** with a blank save.
    - If a save with the same **name, seed, and slot number** exists, it will load that save instead.
 4. To delete Archipelago saves, go to:
