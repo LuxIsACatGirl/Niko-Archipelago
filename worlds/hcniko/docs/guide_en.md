@@ -1,23 +1,37 @@
 # Here Comes Niko! Setup Guide
 
-- Here Comes Niko!: [Steam](https://store.steampowered.com/app/925950/Here_Comes_Niko/)
-- Archipelago Mod: [GitHub](https://github.com/niieli/NikoArchipelagoMod/releases/latest)
-- apworld: [GitHub](https://github.com/niieli/Niko-Archipelago/releases/latest)
+## Required Software
+
+- [Here Comes Niko!](https://store.steampowered.com/app/925950/Here_Comes_Niko/) (Steam)
+- [Here Comes Niko! Randomizer Mod](https://github.com/niieli/NikoArchipelagoMod/releases/latest)
+- [BepInEx 5.4.21 (Unity Mono x64)](https://github.com/BepInEx/BepInEx/tree/v5.4.21)
 
 ## Installation
 
-1. Download and install [BepInEx 5.4.x](https://github.com/BepInEx/BepInEx/releases/tag/v5.4.22) in your Here Comes Niko root folder. 
-2. Start the game once so that BepInEx creates its stuff
-3. Download the latest zip from the [release page](https://github.com/niieli/NikoArchipelagoMod/releases/latest) and extract its content into `BepInEx/plugins`
+### Install BepInEx
+
+### Install BepInEx
+
+1. Download [BepInEx 5.4.21 (Unity Mono x64)](https://github.com/BepInEx/BepInEx/tree/v5.4.21)
+2. Extract the contents of the BepInEx .zip file into your Here Comes Niko! game directory:
+   - Default Steam path: `C:\Program Files (x86)\Steam\steamapps\common\Here Comes Niko`
+   - If using a custom installation, adjust accordingly.
+3. Run the game once to allow BepInEx to create necessary folders.
+
+### Install The Here Comes Niko! Randomizer Mod
+
+1. Download the latest release of the [Here Comes Niko! Randomizer Mod](https://github.com/niieli/NikoArchipelagoMod/releases/latest).
+2. Navigate to your game directory and open the `BepInEx/plugins` folder.
+3. Extract the contents of the downloaded .zip file **directly** into the `BepInEx/plugins` folder.
+   - Ensure the mod file path is **`BepInEx/plugins/NikoArchipelago.dll`**, not inside a subfolder like `BepInEx/plugins/NikoArchipelagoMod/NikoArchipelago.dll`.
+4. Launch the game, if the mod is installed correctly, the title screen will be modified.
 
 ## Connecting
 
-After loading into the game press the Archipelago icon in the middle of the screen and adjust everything to your liking.
-
-![image](https://github.com/user-attachments/assets/6aab53b6-a02a-4be6-aedd-32ee1722357a)
-
-Then click 'Connect' and you should load into Home with a blank save. 
-
-(If you already have a save with the same address, port, name and seed, it will load into that one instead)
-
-You can delete Archipelago saves at `...\AppData\LocalLow\Frog Vibes\Here Comes Niko!\Archipelago` (not sure for other systems)
+1. Open the in-game menu and click on the **Archipelago logo**.
+2. Enter your **connection information** on the left side.
+   - Example connection format: `server:port` (e.g., `archipelago.example.com:1234`).
+3. Click **Connect**—you should load into **Home** with a blank save.
+   - If a save with the same **name, seed, and slot number** exists, it will load that save instead.
+4. To delete Archipelago saves, go to:
+   - `...\AppData\LocalLow\Frog Vibes\Here Comes Niko!\Archipelago`
