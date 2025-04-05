@@ -10,7 +10,7 @@ Here Comes Niko! AP Randomizer randomizes every reward(even frogs!) in the game 
 
 Areas can only be accessed by finding the corresponding ticket. For example, you need to find the `Turbine Town Ticket` item to access Turbine Town
 
-The goal is to either reach Pepper's interview and get hired or get the Employee Of The Month! achievement. The coin amount required to buy at the Kiosk is randomized
+The goal is to either reach **Pepper's Interview** and get hired or get the **Employee Of The Month!** achievement. The coin amount required to buy at the Kiosk is randomized
 
 ## Changes from the vanilla game
 
@@ -34,39 +34,39 @@ If there's another Here Comes Niko! slot in the multiworld the items will show u
 The contact list add various NPCs with objectives to complete in multiple levels.
 
 Contact List 1 adds:
-- Hairball City:
+- **Hairball City**:
   - Mitch
   - Mai
   - Moomy (Hamster ball)
   - Blippy (Dog variant)
   - Nina (Graffiti)
-- Turbine Town:
+- **Turbine Town**:
   - Mitch
   - Mai
   - Blippy (Dog variant)
-- Salmon Creek Forest:
+- **Salmon Creek Forest**:
   - Fischer
   - SPORTVIVAL
   - Mai
 
 Contact List 2 adds:
-- Hairball City:
+- **Hairball City**:
   - Game Kid
   - Blippy
   - Serschel & Louist
-- Turbine Town:
+- **Turbine Town**:
   - Blippy
   - Serschel & Louist
-- Salmon Creek Forest:
+- **Salmon Creek Forest**:
   - Game Kid
   - Blippy
   - Serschel & Louist
-- Public Pool
+- **Public Pool**
   - Mitch
   - SPORTVIVAL VOLLEY
   - Blessley
   - Little Gabi
-- Bathhouse:
+- **Bathhouse**:
   - Fischer
   - Blessley
   - Little Gabi
