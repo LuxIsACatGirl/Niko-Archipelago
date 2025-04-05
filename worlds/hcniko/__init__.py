@@ -145,12 +145,6 @@ class HereComesNikoWorld(World):
                     self.cassette_cost["Gary's Garden - Mitch"] = passthrough["cgg1"] * 5
                     self.cassette_cost["Gary's Garden - Mai"] = passthrough["cgg2"] * 5
 
-                for i in self.kiosk_cost:
-                    print("%s Cost: %i\n" % (i, self.kiosk_cost[i]))
-                for i in self.cassette_cost:
-                    real_cassette_cost = self.cassette_cost[i]
-                    print("%s Cassette Cost: %i\n" % (i, real_cassette_cost))
-
     def create_item(self, name: str) -> HereComesNikoItem:
         return HereComesNikoItem(name, item_data_table[name].type, item_data_table[name].id, self.player)
 
@@ -164,7 +158,7 @@ class HereComesNikoWorld(World):
             if item.id and item.can_create(self.options):
                 if item.type in {ItemClassification.filler, ItemClassification.trap}:
                     continue
-                while item_pool_count[name] < item.num_exist:
+                while item_pool_count[name] < item.num_exist and name != "Speed Boost":
                     item_pool.append(self.create_item(name))
                     item_pool_count[name] += 1
         if not self.options.shuffle_garys_garden.value:
@@ -185,6 +179,12 @@ class HereComesNikoWorld(World):
                     item.classification = ItemClassification.progression
         if self.options.start_with_ticket.value:
             item_pool = [item for item in item_pool if item.name != self.selected_ticket]
+        # Determine available locations before adding Speed Boosts
+        total_locations = len(self.multiworld.get_unfilled_locations(self.player))      #TODO: Fix Speed Boost Placement
+        remaining_spots = total_locations - len(item_pool)                              #TODO: Fix Speed Boost Placement
+        speed_boosts_to_add = min(8, remaining_spots)                                   #TODO: Fix Speed Boost Placement
+        for _ in range(speed_boosts_to_add):                                            #TODO: Fix Speed Boost Placement
+            item_pool.append(self.create_item("Speed Boost"))                           #TODO: Fix Speed Boost Placement
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
         item_pool += [self.create_filler() for _ in range(total_locations - len(item_pool))]
         mw.itempool += item_pool

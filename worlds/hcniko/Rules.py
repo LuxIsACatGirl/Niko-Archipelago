@@ -199,8 +199,8 @@ def get_location_rules(player, world):
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
         "Hairball City - Blippy Dog":
-            lambda state: state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2),
+            lambda state: state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1),
         "Hairball City - Blippy":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2),
