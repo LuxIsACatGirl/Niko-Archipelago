@@ -157,6 +157,47 @@ class SnailShopLocations(Toggle):
     display_name = "Snail Shop"
 
 
+class BonkPermit(Toggle):
+    """When enabled, a 'Safety Helmet' is required to break breakable blocks."""
+    display_name = "Safety Helmet"
+
+
+class BugNet(Toggle):
+    """When enabled, a 'Bug Net' is required to catch bugs."""
+    display_name = "Bug net"
+
+
+class SodaCans(Toggle):
+    """When enabled, soda cannons are broken, the item 'Soda Repair' will make the frog engineers repair them.
+    DOESN'T INCLUDE THE ELEVATOR!"""
+    display_name = "Soda Cans"
+
+
+class Parasols(Toggle):
+    """When enabled, Parasols are broken, the item 'Parasol Repair' will make the frog engineers repair them."""
+    display_name = "Parasols"
+
+
+class Swimming(Toggle):
+    """When enabled, a 'Swim Course' is required to swim in water."""
+    display_name = "Swimming"
+
+
+class Textbox(Toggle):
+    """When enabled, the item 'Textbox' is required to talk to NPCs."""
+    display_name = "Textbox"
+
+
+class AirConditioning(Toggle):
+    """When enabled, ACs are broken, the item 'AC Repair' will make the frog engineers repair them."""
+    display_name = "Air Conditioners"
+
+
+class AppleBasket(Toggle):
+    """When enabled, Apples cannot be picked up until you have the item 'Apple Basket' to store them in."""
+    display_name = "Apple Basket"
+
+
 class Fishsanity(Choice):
     """Need more checks or are you just insane?
     Vanilla: Normal Here Comes Niko! behaviour
@@ -205,6 +246,22 @@ class Flowerbedsanity(Choice):
     default = 0
 
 
+class Bonesanity(Choice):
+    """Need more checks or are you just insane?
+    Vanilla: Normal Here Comes Niko! behaviour
+    -----------------------------------------------------------
+    Location: Every single bone is a unique location
+    -----------------------------------------------------------
+    Insanity: Same as location with the change that Bone Dog won't give you the reward for collecting all bones until you have been sent all bones for that level.
+    So you need the item 'Hairball City Bone' 5x before being able to obtain Bone Dog's reward in Hairball City.
+    Check the in-game menu, to see if you have enough bones and obtained the reward from Bone Dog."""
+    display_name = "Bonesanity"
+    option_vanilla = 0
+    option_location = 1
+    option_insanity = 2
+    default = 0
+
+
 class Applesanity(Toggle):
     """Need more checks or are you just insane?
     When enabled, freestanding apples will be randomized.
@@ -212,15 +269,40 @@ class Applesanity(Toggle):
     display_name = "Applesanity"
 
 
-# class NPCsanity(Toggle):
-#     """Need more checks or are you just insane?
-#     When enabled, NPCs will be randomized, and will contain items, but you will need to unlock them with the corresponding item.
-#     So you need the item 'Hairball City NPCs' to unlock them and be able to talk to them."""
-#     display_name = "NPCsanity"
+class Bugsanity(Toggle):
+    """Need more checks or are you just insane?
+    When enabled, bugs will be randomized.
+    This adds 349 locations."""
+    display_name = "Bugsanity"
+
+
+class Chatsanity(Choice):
+    """Need more checks or are you just insane?
+    Vanilla: Normal Here Comes Niko! behaviour
+    -----------------------------------------------------------
+    Level Based: Every single NPC you can talk to is a unique location in every level
+    -----------------------------------------------------------
+    Global: Every single NPC you can talk to is a unique location, but only once, regardless of level"""
+    display_name = "Chatsanity"
+    option_vanilla = 0
+    option_level_based = 1
+    option_global = 2
+
+
+class Thoughtsanity(Toggle):
+    """Chatsanity Part 2
+    When enabled, Niko's thoughts will send a unique location similar to Chatsanity
+    Niko's thought are found at places with a magnifying glass"""
+    display_name = "Thoughtsanity"
 
 
 class HCNDeathLink(DeathLink):
     """When somebody dies the level will be reloaded"""
+
+
+class TrapLink(Toggle):
+    """Traps with other TrapLink players are shared."""
+
 
 @dataclass
 class HereComesNikoOptions(PerGameCommonOptions):
@@ -234,11 +316,22 @@ class HereComesNikoOptions(PerGameCommonOptions):
     cassette_logic: CassetteLogic
     progressive_contact_list: ProgressiveContactList
     snail_shop: SnailShopLocations
+    bonk_permit: BonkPermit
+    bug_catching: BugNet
+    soda_cans: SodaCans
+    parasols: Parasols
+    swimming: Swimming
+    textbox: Textbox
+    ac_repair: AirConditioning
+    applebasket: AppleBasket
     fishsanity: Fishsanity
     seedsanity: Seedsanity
     flowersanity: Flowerbedsanity
+    bonesanity: Bonesanity
     applesanity: Applesanity
-#    npcsanity: NPCsanity
+    bugsanity: Bugsanity
+    chatsanity: Chatsanity
+    thoughtsanity: Thoughtsanity
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
     max_kiosk_cost: MaxKioskCost
@@ -246,3 +339,4 @@ class HereComesNikoOptions(PerGameCommonOptions):
     max_elevator_cost: MaxElevatorCost
     start_inventory_from_pool: StartInventoryPool
     death_link: HCNDeathLink
+    trap_link: TrapLink
