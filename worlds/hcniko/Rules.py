@@ -32,10 +32,16 @@ def has_tickets(state: CollectionState, player, required_tickets):
 
 def has_access_garden(state: CollectionState, player, world):
     access_option = world.options.access_garys_garden.value
-    if access_option == 1:
+    if access_option == 1 and world.options.textbox.value == 1:
+        return state.has("Gary's Garden Ticket", player) and state.has("Tadpole HQ Ticket", player) and state.has("Textbox", player)
+    elif access_option == 1:
         return state.has("Gary's Garden Ticket", player) and state.has("Tadpole HQ Ticket", player)
+    elif access_option == 2 and world.options.textbox.value == 1:
+        return state.has("Gary's Garden Ticket", player) and state.has("Textbox", player)
     elif access_option == 2:
         return state.has("Gary's Garden Ticket", player)
+    elif access_option == 0 and world.options.textbox.value == 1:
+        return state.has("Tadpole HQ Ticket", player) and state.has("Textbox", player)
     else:
         return state.has("Tadpole HQ Ticket", player)
 
@@ -979,6 +985,8 @@ def get_location_rules(player, world):
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Hasselhop (Chatsanity)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+        "Hairball City - Niko admires a Frog Statue (Thought)":
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
 
         "Turbine Town - Albino Corydoras":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
@@ -1384,7 +1392,9 @@ def get_location_rules(player, world):
                           or (state.has("Bathhouse Ticket", player)
                               and (state.has("Contact List 2", player)
                                    or state.has("Progressive Contact List", player, 2)))
-                          or state.has("Tadpole HQ Ticket", player),
+                          or (state.has("Tadpole HQ Ticket", player)
+                              and (state.has("Key", player,7)
+                                   or state.has("Tadpole HQ Key", player))),
         "Chatsanity - Blippy Dog":
             lambda state: state.has("Party Invitation", player)
                           or (state.has("Hairball City Ticket", player)
@@ -1804,4 +1814,6 @@ def get_location_rules(player, world):
             lambda state: state.has("Turbine Town Ticket", player),
         "Chatsanity - Woodisch":
             lambda state: state.has("Salmon Creek Forest Ticket", player),
+        "Public Pool - Niko & 2D(Thought)":
+            lambda state: has_access_to(state, player, "Public Pool - Far Away Island Right Side"),
     }
