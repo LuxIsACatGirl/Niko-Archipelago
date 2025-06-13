@@ -220,7 +220,8 @@ def get_location_rules(player, world):
                           and state.has("Turbine Town Ticket", player)
                           and state.has("Salmon Creek Forest Ticket", player)
                           and state.has("Public Pool Ticket", player)
-                          and state.has("Bathhouse Ticket", player),
+                          and state.has("Bathhouse Ticket", player)
+                          and (world.options.textbox.value != 1 or state.has("Textbox", player)),
         "Achievement - Volley Dreams":
             lambda state: has_all_tickets(state, player)
                           and (state.has("Contact List 2", player)
@@ -248,7 +249,8 @@ def get_location_rules(player, world):
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Above Frog Statue":
             lambda state: state.has("Key", player, 7)
-                          or state.has("Hairball City Key", player),
+                          or state.has("Hairball City Key", player)
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Inside Locked Cave":
             lambda state: state.has("Key", player, 7)
                           or state.has("Salmon Creek Forest Key", player),
