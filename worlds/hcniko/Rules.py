@@ -32,18 +32,18 @@ def has_tickets(state: CollectionState, player, required_tickets):
 
 def has_access_garden(state: CollectionState, player, world):
     access_option = world.options.access_garys_garden.value
-    if access_option == 1 and world.options.textbox.value == 1:
-        return state.has("Gary's Garden Ticket", player) and state.has("Tadpole HQ Ticket", player) and state.has("Textbox", player)
-    elif access_option == 1:
-        return state.has("Gary's Garden Ticket", player) and state.has("Tadpole HQ Ticket", player)
-    elif access_option == 2 and world.options.textbox.value == 1:
-        return state.has("Gary's Garden Ticket", player) and state.has("Textbox", player)
+    if access_option == 1:
+        return (state.has("Gary's Garden Ticket", player)
+                and state.has("Tadpole HQ Ticket", player)
+                and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                and (world.options.swimming.value != 1 or state.has("Swim Course", player)))
     elif access_option == 2:
-        return state.has("Gary's Garden Ticket", player)
-    elif access_option == 0 and world.options.textbox.value == 1:
-        return state.has("Tadpole HQ Ticket", player) and state.has("Textbox", player)
+        return (state.has("Gary's Garden Ticket", player)
+                and (world.options.textbox.value != 1 or state.has("Textbox", player)))
     else:
-        return state.has("Tadpole HQ Ticket", player)
+        return (state.has("Tadpole HQ Ticket", player)
+                and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                and (world.options.swimming.value != 1 or state.has("Swim Course", player)))
 
 
 def has_party_ticket(state: CollectionState, player, world):
