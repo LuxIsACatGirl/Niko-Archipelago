@@ -1594,7 +1594,7 @@ def get_location_rules(player, world):
         "Chatsanity - Maggie":
             lambda state: state.has("Hairball City Ticket", player)
                           or state.has("Party Invitation", player),
-        "Chatsanity - Mahjong Frogs":
+        "Chatsanity - Mahjong Frog":
             lambda state: (state.has("Bathhouse Ticket", player)
                            and (state.has("Key", player, 7)
                                 or state.has("Bathhouse Key", player, 2)))
