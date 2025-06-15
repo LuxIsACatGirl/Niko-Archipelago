@@ -958,6 +958,12 @@ def get_location_rules(player, world):
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Bathhouse - Apple 23":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
+        "Bathhouse - Seed 7":
+            lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
+        "Bathhouse - Seed 8":
+            lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
+        "Bathhouse - Seed 10":
+            lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
 
         "Achievement - Lost at Sea":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
