@@ -1057,13 +1057,11 @@ def get_location_rules(player, world):
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Bug 65":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - 12":
+        "Salmon Creek Forest - Bug 12":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - 16":
+        "Salmon Creek Forest - Bug 16":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Bug 62":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - ":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
 
         "Public Pool - Inside BIG Pool":
