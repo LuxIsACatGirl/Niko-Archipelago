@@ -1098,16 +1098,26 @@ def get_location_rules(player, world):
 
         "Bathhouse - Bone 1":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
-                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
+                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player))
+                          and (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2)),
         "Bathhouse - Bone 2":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2)),
         "Bathhouse - Bone 3":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
-                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
+                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player))
+                          and (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2)),
         "Bathhouse - Bone 4":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2)),
         "Bathhouse - Bone 5":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 2", player)
+                          or state.has("Progressive Contact List", player, 2)),
         "Bathhouse - Hasselhop (Chatsanity)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
 
