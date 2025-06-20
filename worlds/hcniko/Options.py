@@ -324,7 +324,7 @@ class FreezeTrapWeight(Range):
 
 
 class IronBootsTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Iron Boots Traps in the trap pool.
     Iron Boots Traps will make Niko slow & heavy."""
     display_name = "Iron Boots Trap Weight"
     range_start = 0
@@ -333,7 +333,7 @@ class IronBootsTrapWeight(Range):
 
 
 class WhoopsTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Whoops! Traps in the trap pool.
     Whoops! Traps will send Niko way up in the sky."""
     display_name = "Whoops! Trap Weight"
     range_start = 0
@@ -342,16 +342,16 @@ class WhoopsTrapWeight(Range):
 
 
 class MyTurnTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
-    MyTurn! Traps will make Niko jump, dive and move in random directions."""
-    display_name = "MyTurn! Trap Weight"
+    """The weight of My Turn! Traps in the trap pool.
+    My Turn! Traps will make Niko jump, dive and move in random directions."""
+    display_name = "My Turn! Trap Weight"
     range_start = 0
     range_end = 100
     default = 40
 
 
 class GravityTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Gravity Traps in the trap pool.
     Gravity Traps will temporarily remove gravity."""
     display_name = "Gravity Trap Weight"
     range_start = 0
@@ -360,7 +360,7 @@ class GravityTrapWeight(Range):
 
 
 class HomeTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Home Traps in the trap pool.
     Home Traps will send Niko back to Home."""
     display_name = "Home Trap Weight"
     range_start = 0
@@ -369,7 +369,7 @@ class HomeTrapWeight(Range):
 
 
 class WideTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of W I D E Traps in the trap pool.
     W I D E Traps will make Niko very wide."""
     display_name = "W I D E Trap Weight"
     range_start = 0
@@ -378,7 +378,7 @@ class WideTrapWeight(Range):
 
 
 class PhoneTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Phone Traps in the trap pool.
     Phone Traps will force Niko to receive an unskippable phone call."""
     display_name = "Phone Trap Weight"
     range_start = 0
@@ -387,7 +387,7 @@ class PhoneTrapWeight(Range):
 
 
 class TinyTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Tiny Traps in the trap pool.
     Tiny Traps will make Niko very tiny."""
     display_name = "Tiny Trap Weight"
     range_start = 0
@@ -396,7 +396,7 @@ class TinyTrapWeight(Range):
 
 
 class JumpingJacksTrapWeight(Range):
-    """The weight of Freeze Traps in the trap pool.
+    """The weight of Jumping Jacks Traps in the trap pool.
     Jumping Jacks Traps will make Niko jump continuously."""
     display_name = "Jumping Jacks Trap Weight"
     range_start = 0
