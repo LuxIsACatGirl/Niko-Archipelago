@@ -25,6 +25,7 @@ class HereComesNikoWebWorld(WebWorld):
     )
 
     tutorials = [setup_en]
+    option_groups = hcniko_option_groups
 
 
 class HereComesNikoWorld(World):
@@ -38,7 +39,6 @@ class HereComesNikoWorld(World):
     item_name_to_id = item_table
     item_name_groups = item_name_groups
     location_name_groups = location_name_groups
-    option_groups = hcniko_option_groups
 
     using_ut: bool
     passthrough: Dict[str, Any]
