@@ -428,6 +428,13 @@ class HereComesNikoOptions(PerGameCommonOptions):
     cassette_logic: CassetteLogic
     progressive_contact_list: ProgressiveContactList
     snail_shop: SnailShopLocations
+
+    goal_completion: GoalCompletion
+    min_kiosk_cost: MinKioskCost
+    max_kiosk_cost: MaxKioskCost
+    min_elevator_cost: MinElevatorCost
+    max_elevator_cost: MaxElevatorCost
+
     bonk_permit: BonkPermit
     bug_catching: BugNet
     soda_cans: SodaCans
@@ -446,12 +453,6 @@ class HereComesNikoOptions(PerGameCommonOptions):
     bugsanity: Bugsanity
     chatsanity: Chatsanity
     thoughtsanity: Thoughtsanity
-
-    goal_completion: GoalCompletion
-    min_kiosk_cost: MinKioskCost
-    max_kiosk_cost: MaxKioskCost
-    min_elevator_cost: MinElevatorCost
-    max_elevator_cost: MaxElevatorCost
 
     trapchance: TrapChance
     freeze_trapweight: FreezeTrapWeight
