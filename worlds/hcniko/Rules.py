@@ -868,10 +868,14 @@ def get_location_rules(player, world):
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
 
         "Public Pool - Far Away Island":
-            lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player)),
+            lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
+                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
         "Public Pool - Far Away Island Left Side":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player)),
         "Public Pool - Far Away Island Right Side":
+            lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
+                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
+        "Public Pool - Niko & 2D (Thought)":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player)),
         "Public Pool - Apple 50":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))

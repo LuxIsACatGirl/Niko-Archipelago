@@ -311,7 +311,7 @@ class TrapChance(Range):
     display_name = "Trap Chance"
     range_start = 0
     range_end = 100
-    default = 50
+    default = 25
 
 
 class FreezeTrapWeight(Range):
