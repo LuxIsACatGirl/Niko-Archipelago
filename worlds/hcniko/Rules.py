@@ -1900,4 +1900,6 @@ def get_location_rules(player, world):
                            or state.has("Swim Course", player)),
         "Tadpole HQ - Borbie (Chatsanity)":
             lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]),
+        "Tadpole HQ - Pepper (Chatsanity)":
+            lambda state: can_talk_to_peper(state, player, world.kiosk_cost["Elevator"]),
     }
