@@ -347,7 +347,7 @@ class MyTurnTrapWeight(Range):
     display_name = "My Turn! Trap Weight"
     range_start = 0
     range_end = 100
-    default = 40
+    default = 30
 
 
 class GravityTrapWeight(Range):
@@ -356,7 +356,7 @@ class GravityTrapWeight(Range):
     display_name = "Gravity Trap Weight"
     range_start = 0
     range_end = 100
-    default = 20
+    default = 10
 
 
 class HomeTrapWeight(Range):
@@ -383,7 +383,7 @@ class PhoneTrapWeight(Range):
     display_name = "Phone Trap Weight"
     range_start = 0
     range_end = 100
-    default = 40
+    default = 25
 
 
 class TinyTrapWeight(Range):
@@ -401,7 +401,7 @@ class JumpingJacksTrapWeight(Range):
     display_name = "Jumping Jacks Trap Weight"
     range_start = 0
     range_end = 100
-    default = 40
+    default = 25
 
 
 class HCNDeathLink(DeathLink):
