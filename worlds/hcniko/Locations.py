@@ -877,7 +877,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Salmon Creek Forest - Flippy (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1223, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Jippy (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1224, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Mippy (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1225, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
-    #"Salmon Creek Forest - Skippy (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1226, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Salmon Creek Forest - Skippy (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1226, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Tippy (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1227, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Clint (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1228, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Coco (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1229, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),

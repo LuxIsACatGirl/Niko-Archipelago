@@ -241,7 +241,10 @@ def get_location_rules(player, world):
         "Bathhouse - Poppy":
             lambda state: (state.has("Key", player, 7)
                           or state.has("Bathhouse Key", player, 2))
-                          and (world.options.textbox.value != 1 or state.has("Textbox", player)),
+                          and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                          and (world.options.swimming.value != 1
+                           or world.options.precisejumps.value == 1
+                           or state.has("Swim Course", player)),
         "Tadpole HQ - Blippy":
             lambda state: (state.has("Key", player, 7)
                           or state.has("Tadpole HQ Key", player))
@@ -300,7 +303,8 @@ def get_location_rules(player, world):
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Turbine Town - Blippy":
             lambda state: state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2),
+                          or state.has("Progressive Contact List", player, 2)
+                          and (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Turbine Town - Serschel & Louist":
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
@@ -308,10 +312,12 @@ def get_location_rules(player, world):
         "Salmon Creek Forest - Game Kid":
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
-                          and (world.options.textbox.value != 1 or state.has("Textbox", player)),
+                          and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Blippy":
             lambda state: state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2),
+                          or state.has("Progressive Contact List", player, 2)
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Serschel & Louist":
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
@@ -952,6 +958,8 @@ def get_location_rules(player, world):
 
         "Turbine Town - Near Fishing Containers":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
+        "Bathhouse - Niko is a ninja (Thought)":
+            lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Bathhouse - Fan to Fan":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Bathhouse - Apple 30":
@@ -1008,6 +1016,8 @@ def get_location_rules(player, world):
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Niko admires a Frog Statue (Thought)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+        "Hairball City - Nervous Frog (Chatsanity)":
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
 
         "Turbine Town - Albino Corydoras":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
@@ -1052,6 +1062,8 @@ def get_location_rules(player, world):
         "Salmon Creek Forest - Woodisch (Chatsanity)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Divin' Doe (Chatsanity)":
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+        "Salmon Creek Forest - Niko & a rock (Thought)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Apple 113":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
@@ -1247,7 +1259,7 @@ def get_location_rules(player, world):
         "Turbine Town - Blippy (Chatsanity)":
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2)),
-        "Turbine Town - Blippy Dog(Chatsanity)":
+        "Turbine Town - Blippy Dog (Chatsanity)":
             lambda state: (state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1)),
         "Turbine Town - Serschel (Chatsanity)":
@@ -1312,6 +1324,8 @@ def get_location_rules(player, world):
             lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
         "Salmon Creek Forest - Tippy (Chatsanity)":
             lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
+        "Salmon Creek Forest - Skippy (Chatsanity)":
+            lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
         "Salmon Creek Forest - Pine Frog (Chatsanity)":
             lambda state: (world.options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
 
@@ -1332,6 +1346,9 @@ def get_location_rules(player, world):
         "Public Pool - Trixie (Chatsanity)":
             lambda state: (state.has("Contact List 2", player)
                            or state.has("Progressive Contact List", player, 2)),
+        "Public Pool - Vlog Frog (Chatsanity)":
+            lambda state: (state.has("Contact List 2", player)
+                           or state.has("Progressive Contact List", player, 2)),
         "Public Pool - Poppy (Chatsanity)":
             lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
         "Public Pool - Paul (Chatsanity)":
@@ -1348,6 +1365,9 @@ def get_location_rules(player, world):
             lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
 
         "Bathhouse - Blessley (Chatsanity)":
+            lambda state: (state.has("Contact List 2", player)
+                           or state.has("Progressive Contact List", player, 2)),
+        "Bathhouse - Vlog Frog (Chatsanity)":
             lambda state: (state.has("Contact List 2", player)
                            or state.has("Progressive Contact List", player, 2)),
         "Bathhouse - Fischer (Chatsanity)":
@@ -1387,7 +1407,7 @@ def get_location_rules(player, world):
             lambda state: has_access_to(state, player, "Public Pool - Frogtective"),
         "Bathhouse - Marry D. Carota (Chatsanity)":
             lambda state: has_access_to(state, player, "Public Pool - Frogtective"),
-        "Bathhouse - David D. Caroat (Chatsanity)":
+        "Bathhouse - David D. Carota (Chatsanity)":
             lambda state: has_access_to(state, player, "Public Pool - Frogtective"),
         "Bathhouse - Dustan (Chatsanity)":
             lambda state: has_access_to(state, player, "Bathhouse - Dustan on Bathhouse"),
@@ -1722,7 +1742,8 @@ def get_location_rules(player, world):
         "Chatsanity - Mythology Gull":
             lambda state: state.has("Turbine Town Ticket", player),
         "Chatsanity - Nervous Frog":
-            lambda state: state.has("Hairball City Ticket", player),
+            lambda state: state.has("Hairball City Ticket", player)
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Chatsanity - Niko a0.45":
             lambda state: state.has("Tadpole HQ Ticket", player),
         "Chatsanity - Nina":
@@ -1781,7 +1802,8 @@ def get_location_rules(player, world):
         "Chatsanity - Simon":
             lambda state: state.has("Hairball City Ticket", player),
         "Chatsanity - Skippy":
-            lambda state: state.has("Salmon Creek Forest Ticket", player)
+            lambda state: (state.has("Salmon Creek Forest Ticket", player)
+                           or state.has("Public Pool Ticket", player))
                           and has_access_to(state, player, "Bathhouse - Poppy"),
         "Chatsanity - Slack Frog":
             lambda state: state.has("Tadpole HQ Ticket", player),
