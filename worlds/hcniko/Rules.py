@@ -798,15 +798,15 @@ def get_location_rules(player, world):
                           or (state.has("Tadpole HQ Ticket", player))
                           or (state.has("Gary's Garden Ticket", player))))
                           and (world.options.textbox.value != 1 or state.has("Textbox", player)),
-        "Hairball City - Apple 11":
+        "Hairball City - Apple On Frog Statue Island Pier 1":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Hairball City - Apple 15":
+        "Hairball City - Apple On Frog Statue Island Pier 2":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Hairball City - Apple 25":
+        "Hairball City - Apple On Frog Statue Island Pier 3":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Hairball City - Apple 9":
+        "Hairball City - Apple On Frog Statue Island Pier 4":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Hairball City - Apple 12":
+        "Hairball City - Apple On Frog Statue Island Pier 5":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Bug 53":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
@@ -860,16 +860,16 @@ def get_location_rules(player, world):
             lambda state: (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
         "Turbine Town - Stone Pillar Behind Wind Turbine":
             lambda state: (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Salmon Creek Forest - Apple 11":
+        "Salmon Creek Forest - Apple On Third Rock Cluster Near Building Submerged In Ocean 3":
             lambda state: (world.options.parasols.value != 1 or state.has("Parasol Repair", player))
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - Apple 56":
+        "Salmon Creek Forest - Apple On Third Rock Cluster Near Building Submerged In Ocean 4":
             lambda state: (world.options.parasols.value != 1 or state.has("Parasol Repair", player))
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - Apple 41":
+        "Salmon Creek Forest - Apple On Third Rock Cluster Near Building Submerged In Ocean 5":
             lambda state: (world.options.parasols.value != 1 or state.has("Parasol Repair", player))
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - Apple 50":
+        "Salmon Creek Forest - Apple On Third Rock Cluster Near Building Submerged In Ocean 6":
             lambda state: (world.options.parasols.value != 1 or state.has("Parasol Repair", player))
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
 
@@ -883,76 +883,76 @@ def get_location_rules(player, world):
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
         "Public Pool - Niko & 2D (Thought)":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player)),
-        "Public Pool - Apple 50":
+        "Public Pool - Apple On Far Away Island 1":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 35":
+        "Public Pool - Apple On Far Away Island 2":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 58":
+        "Public Pool - Apple On Far Away Island 3":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 36":
+        "Public Pool - Apple On Far Away Island 4":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 74":
+        "Public Pool - Apple On Far Away Island 5":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 80":
+        "Public Pool - Apple On Far Away Island 6":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 67":
+        "Public Pool - Apple On Far Away Island 7":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 19":
+        "Public Pool - Apple On Far Away Island 8":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 75":
+        "Public Pool - Apple On Far Away Island 9":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 10":
+        "Public Pool - Apple On Far Away Island 10":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 33":
+        "Public Pool - Apple On Far Away Island 11":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 18":
+        "Public Pool - Apple On Far Away Island 12":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 55":
+        "Public Pool - Apple On Far Away Island 13":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 84":
+        "Public Pool - Apple On Far Away Island 14":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 77":
+        "Public Pool - Apple On Far Away Island 15":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 78":
+        "Public Pool - Apple On Far Away Island 16":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 61":
+        "Public Pool - Apple On Far Away Island 17":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 28":
+        "Public Pool - Apple On Far Away Island 18":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 20":
+        "Public Pool - Apple On Far Away Island 19":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 27":
+        "Public Pool - Apple On Far Away Island 20":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 44":
+        "Public Pool - Apple On Far Away Island 21":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 23":
+        "Public Pool - Apple On Far Away Island 22":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 41":
+        "Public Pool - Apple On Far Away Island 23":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
-        "Public Pool - Apple 48":
+        "Public Pool - Apple On Far Away Island 24":
             lambda state: (world.options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
 
@@ -962,21 +962,21 @@ def get_location_rules(player, world):
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Bathhouse - Fan to Fan":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 30":
+        "Bathhouse - Apple Near Dustan 8":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 16":
+        "Bathhouse - Apple Near Dustan 1":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 27":
+        "Bathhouse - Apple Near Dustan 7":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 47":
+        "Bathhouse - Apple Near Dustan 6":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 67":
+        "Bathhouse - Apple Near Dustan 5":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 9":
+        "Bathhouse - Apple Near Dustan 4":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 72":
+        "Bathhouse - Apple Near Dustan 3":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
-        "Bathhouse - Apple 23":
+        "Bathhouse - Apple Near Dustan 2":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Bathhouse - Seed 7":
             lambda state: (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
@@ -1065,11 +1065,11 @@ def get_location_rules(player, world):
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Niko & a rock (Thought)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - Apple 113":
+        "Salmon Creek Forest - Apple On Second Rock Cluster Near Building Submerged In Ocean 1":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - Apple 112":
+        "Salmon Creek Forest - Apple On Second Rock Cluster Near Building Submerged In Ocean 2":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
-        "Salmon Creek Forest - Apple 58":
+        "Salmon Creek Forest - Apple On Second Rock Cluster Near Building Submerged In Ocean 3":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Salmon Creek Forest - Bug 79":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
