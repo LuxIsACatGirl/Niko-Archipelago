@@ -300,7 +300,8 @@ def get_location_rules(player, world):
             lambda state: (state.has("Contact List 1", player)
                           or state.has("Progressive Contact List", player, 1))
                           and (world.options.bonesanity.value != 2 or state.has("Turbine Town Bone", player, 5))
-                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
         "Turbine Town - Blippy":
             lambda state: state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2)
@@ -357,7 +358,8 @@ def get_location_rules(player, world):
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
                           and (world.options.bonesanity.value != 2 or state.has("Bathhouse Bone", player, 5))
-                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (world.options.parasols.value != 1 or state.has("Parasol Repair", player)),
         "Bathhouse - Blippy":
             lambda state: (state.has("Key", player, 7)
                           or state.has("Bathhouse Key", player, 2)) and (state.has("Contact List 2", player)
@@ -824,10 +826,12 @@ def get_location_rules(player, world):
                           and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Public Pool - Blippy Dog":
             lambda state: (world.options.bonesanity.value != 2 or state.has("Public Pool Bone", player, 5))
-                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (world.options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
         "Tadpole HQ - Blippy Dog":
             lambda state: (world.options.bonesanity.value != 2 or state.has("Tadpole HQ Bone", player, 5))
-                          and (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+                          and (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (world.options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
         "Tadpole HQ - Blessley":
             lambda state: (world.options.textbox.value != 1 or state.has("Textbox", player))
                           and (world.options.bug_catching.value != 1 or state.has("Bug Net", player)),
@@ -1002,16 +1006,21 @@ def get_location_rules(player, world):
         "Hairball City - Orange Fish":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Bone 1":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)),
         "Hairball City - Bone 2":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
-                          and (world.options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
+                          and (world.options.bonk_permit.value != 1 or state.has("Safety Helmet", player))
+                          and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)),
         "Hairball City - Bone 3":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)),
         "Hairball City - Bone 4":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)),
         "Hairball City - Bone 5":
-            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player))
+                          and (state.has("Contact List 1", player) or state.has("Progressive Contact List", player, 1)),
         "Hairball City - Hasselhop (Chatsanity)":
             lambda state: (world.options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Niko admires a Frog Statue (Thought)":
