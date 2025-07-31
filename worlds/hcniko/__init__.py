@@ -169,7 +169,8 @@ class HereComesNikoWorld(World):
         # Determine available locations before adding Speed Boosts
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
         remaining_spots = total_locations - len(item_pool)
-        speed_boosts_to_add = min(8, remaining_spots)
+        speed_boost_amount = self.options.speed_boost_amount.value
+        speed_boosts_to_add = min(speed_boost_amount, remaining_spots)
         for _ in range(speed_boosts_to_add):
             item_pool.append(self.create_item("Speed Boost"))
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))

@@ -161,6 +161,14 @@ class SnailShopLocations(Toggle):
     display_name = "Snail Shop"
 
 
+class SpeedBoostAmountInPool(Range):
+    """Determines how many 'Speed Boost' are in the pool."""
+    display_name = "Speed Boost in Item Pool"
+    range_start = 0
+    range_end = 8
+    default = 4
+
+
 class BonkPermit(Toggle):
     """When enabled, a 'Safety Helmet' is required to break breakable blocks."""
     display_name = "Safety Helmet"
@@ -428,6 +436,7 @@ class HereComesNikoOptions(PerGameCommonOptions):
     cassette_logic: CassetteLogic
     progressive_contact_list: ProgressiveContactList
     snail_shop: SnailShopLocations
+    speed_boost_amount: SpeedBoostAmountInPool
 
     goal_completion: GoalCompletion
     min_kiosk_cost: MinKioskCost
@@ -483,7 +492,8 @@ hcniko_option_groups = [
         ShuffleHandsomeFrog,
         ShuffleGarysGarden,
         GarysGardenAccess,
-        SnailShopLocations
+        SnailShopLocations,
+        SpeedBoostAmountInPool
     ]),
     OptionGroup("Item & Logic Options", [
         KeysLevelBased,
