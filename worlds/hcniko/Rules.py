@@ -311,7 +311,8 @@ def get_location_rules(player, world):
         "Turbine Town - Serschel & Louist":
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
-                          and (world.options.textbox.value != 1 or state.has("Textbox", player)),
+                          and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                          and (world.options.ac_repair.value != 1 or state.has("AC Repair", player)),
         "Salmon Creek Forest - Game Kid":
             lambda state: (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
