@@ -416,6 +416,13 @@ class HCNDeathLink(DeathLink):
     """When somebody dies the level will be reloaded"""
 
 
+class DeathLinkAmnesty(Range):
+    """How many water/scissor touches it takes to send a DeathLink"""
+    display_name = "Death Link Amnesty"
+    range_start = 1
+    range_end = 30
+    default = 10
+
 class TrapLink(Toggle):
     """Traps with other TrapLink players are shared."""
     display_name = "Trap Link"
@@ -424,6 +431,7 @@ class TrapLink(Toggle):
 @dataclass
 class HereComesNikoOptions(PerGameCommonOptions):
     death_link: HCNDeathLink
+    death_link_amnesty: DeathLinkAmnesty
     trap_link: TrapLink
 
     shuffle_kiosk_reward: ShuffleKioskReward

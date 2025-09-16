@@ -379,6 +379,7 @@ class HereComesNikoWorld(World):
             "precisejumps": self.options.precisejumps.value,
             "bonesanity": self.options.bonesanity.value,
             "death_link": self.options.death_link.value,
+            "death_link_amnesty": self.options.death_link_amnesty.value,
             "trap_link": self.options.trap_link.value,
             "trapchance": self.options.trapchance.value,
             "freeze_trapweight": self.options.freeze_trapweight.value,
