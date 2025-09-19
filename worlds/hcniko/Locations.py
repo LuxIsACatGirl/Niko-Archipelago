@@ -1089,7 +1089,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Tadpole HQ - Niko & a Pond Party (Thought)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1427, can_create=lambda options: options.thoughtsanity.value==1, location_group="Thoughtsanity"),
     "Tadpole HQ - Niko sees swimming statues (Thought)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1428, can_create=lambda options: options.thoughtsanity.value==1, location_group="Thoughtsanity"),
     "Tadpole HQ - Niko & Frog King Statue (Thought)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1429, can_create=lambda options: options.thoughtsanity.value==1, location_group="Thoughtsanity"),
-    #"Tadpole HQ - Niko has nightmares (Thought)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1430, can_create=lambda options: options.thoughtsanity.value==1, location_group="Thoughtsanity"),
+    "Tadpole HQ - Niko has nightmares (Thought)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1430, can_create=lambda options: options.thoughtsanity.value==1, location_group="Thoughtsanity"),
 
     # Chatsanity (Global)
     "Chatsanity - Pepper": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2000, can_create=lambda options: options.chatsanity.value==2, location_group="Chatsanity"),
