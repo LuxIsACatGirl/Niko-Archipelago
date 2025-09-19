@@ -19,8 +19,8 @@ class HereComesNikoItemData(NamedTuple):
 base_id = 598_145_444_000
 
 item_data_table: Dict[str, HereComesNikoItemData] = {
-    "Coin": HereComesNikoItemData(base_id, type=ItemClassification.progression_skip_balancing, num_exist=79),
-    "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_skip_balancing, can_create=lambda options: options.cassette_logic.value != 0, num_exist=71),
+    "Coin": HereComesNikoItemData(base_id, type=ItemClassification.progression_deprioritized_skip_balancing, num_exist=79),
+    "Cassette": HereComesNikoItemData(base_id + 1, type=ItemClassification.progression_deprioritized_skip_balancing, can_create=lambda options: options.cassette_logic.value != 0, num_exist=71),
     "Key": HereComesNikoItemData(base_id + 2, type=ItemClassification.progression, num_exist=9, can_create=lambda options: not options.level_based_keys.value, item_group="Keys"),
     #"Letter": HereComesNikoItemData(base_id + 7, type=ItemClassification.filler, num_exist=13),
     "Apples": HereComesNikoItemData(base_id + 3, type=ItemClassification.filler),
@@ -31,6 +31,8 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Bugs": HereComesNikoItemData(base_id + 14, type=ItemClassification.filler),
     "Snail Money": HereComesNikoItemData(base_id + 16, type=ItemClassification.filler),
     "Speed Boost": HereComesNikoItemData(base_id + 18, type=ItemClassification.useful, num_exist=8),
+
+    # Traps
     "Freeze Trap": HereComesNikoItemData(base_id + 70, type=ItemClassification.trap),
     "Iron Boots Trap": HereComesNikoItemData(base_id + 71, type=ItemClassification.trap),
     "Whoops! Trap": HereComesNikoItemData(base_id + 72, type=ItemClassification.trap),

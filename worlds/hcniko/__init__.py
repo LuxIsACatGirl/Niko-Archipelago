@@ -73,6 +73,7 @@ class HereComesNikoWorld(World):
             "Gary's Garden - Mai": 0,
             "Gary's Garden - Mitch": 0,
         }
+        self.extra_cassettes = 0
 
     def generate_early(self):
         adjust_options(self)
@@ -163,9 +164,18 @@ class HereComesNikoWorld(World):
             if item.name == "Coin":
                 coin_count += 1
                 if coin_count <= coins_needed:
-                    item.classification = ItemClassification.progression
+                    item.classification = ItemClassification.progression_deprioritized
         if self.options.start_with_ticket.value:
             item_pool = [item for item in item_pool if item.name != self.selected_ticket]
+        # Add extra cassettes to the item pool
+        if self.options.extra_cassettes.value > 0 and self.options.cassette_logic.value != 0:
+            total_locations = len(self.multiworld.get_unfilled_locations(self.player))
+            remaining_spots = total_locations - len(item_pool)
+            extra_cassettes_amount = self.options.extra_cassettes.value
+            extra_cassettes_to_add = min(extra_cassettes_amount, remaining_spots)
+            for _ in range(extra_cassettes_to_add):
+                item_pool.append(self.create_item("Cassette"))
+            self.extra_cassettes = extra_cassettes_to_add
         # Determine available locations before adding Speed Boosts
         total_locations = len(self.multiworld.get_unfilled_locations(self.player))
         remaining_spots = total_locations - len(item_pool)
@@ -327,6 +337,7 @@ class HereComesNikoWorld(World):
             else:
                 real_cassette_cost = self.cassette_cost[i] * 5
             spoiler_handle.write(f"%s Cassette Cost: %i\n" %(i, real_cassette_cost))
+        spoiler_handle.write(f"Extra added Cassettes: {self.extra_cassettes}")
 
     def fill_slot_data(self) -> Dict[str, Any]:
         return  {

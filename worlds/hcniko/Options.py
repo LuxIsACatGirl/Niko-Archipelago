@@ -28,6 +28,9 @@ def adjust_options(world):
     if world.options.swimming.value == 0:
         world.options.precisejumps.value = 0
 
+    if world.options.cassette_logic.value == 0:
+        world.options.extra_cassettes.value = 0
+
 def total_coins(world) -> int:
     count: int = 76
     if world.options.shuffle_garys_garden.value:
@@ -149,6 +152,15 @@ class CassetteLogic(Choice):
     option_progressive = 1
     option_scattered = 2
     default = 2
+
+
+class ExtraAmountOfCassettes(Range):
+    """This option will try to add extra 'Cassettes' to the Item Pool.
+    If there are not enough locations, it will add as many as it can!"""
+    display_name = "Extra Cassettes in Item Pool"
+    range_start = 0
+    range_end = 50
+    default = 10
 
 
 class ProgressiveContactList(DefaultOnToggle):
@@ -442,6 +454,7 @@ class HereComesNikoOptions(PerGameCommonOptions):
     access_garys_garden: GarysGardenAccess
     level_based_keys: KeysLevelBased
     cassette_logic: CassetteLogic
+    extra_cassettes: ExtraAmountOfCassettes
     progressive_contact_list: ProgressiveContactList
     snail_shop: SnailShopLocations
     speed_boost_amount: SpeedBoostAmountInPool
@@ -496,6 +509,7 @@ hcniko_option_groups = [
         ShuffleKioskReward,
         StartWithTicket,
         CassetteLogic,
+        ExtraAmountOfCassettes,
         EnableAchievements,
         ShuffleHandsomeFrog,
         ShuffleGarysGarden,
