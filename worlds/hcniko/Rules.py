@@ -35,14 +35,20 @@ def has_access_garden(state: CollectionState, player, world):
     if access_option == 1:
         return (state.has("Gary's Garden Ticket", player)
                 and state.has("Tadpole HQ Ticket", player)
-                and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                and (world.options.textbox.value == 0
+                     or (world.options.textbox.value == 1 and state.has("Textbox", player))
+                     or (world.options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player)))
                 and (world.options.swimming.value != 1 or state.has("Swim Course", player)))
     elif access_option == 2:
         return (state.has("Gary's Garden Ticket", player)
-                and (world.options.textbox.value != 1 or state.has("Textbox", player)))
+                and (world.options.textbox.value == 0
+                     or (world.options.textbox.value == 1 and state.has("Textbox", player))
+                     or (world.options.textbox.value == 2 and state.has("Gary's Garden Textbox", player))))
     else:
         return (state.has("Tadpole HQ Ticket", player)
-                and (world.options.textbox.value != 1 or state.has("Textbox", player))
+                and (world.options.textbox.value == 0
+                     or (world.options.textbox.value == 1 and state.has("Textbox", player))
+                     or (world.options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player)))
                 and (world.options.swimming.value != 1 or state.has("Swim Course", player)))
 
 
@@ -104,8 +110,9 @@ def get_region_rules(player, world):
                            or (options.textbox.value == 1 and state.has("Textbox", player))
                            or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))),
         "Public Pool -> ChatPP":
-            lambda state: (options.textbox.value != 1 or state.has("Textbox", player))
-                          or options.textbox.value != 2 or state.has("Public Pool Textbox", player),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Public Pool Textbox", player))),
         "Bathhouse -> ChatBath":
             lambda state: (options.textbox.value == 0
                            or (options.textbox.value == 1 and state.has("Textbox", player))
@@ -1041,6 +1048,7 @@ def get_location_rules(player, world):
                           or (state.has("Gary's Garden Ticket", player))
                                and options.textbox.value != 2 or state.has("Gary's Garden Textbox", player)))
                           and (options.textbox.value != 1 or state.has("Textbox", player)),
+
         "Hairball City - Apple On Frog Statue Island Pier 1":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Apple On Frog Statue Island Pier 2":
@@ -1075,21 +1083,25 @@ def get_location_rules(player, world):
                           and (options.swimming.value != 1 or state.has("Swim Course", player))
                           and (options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
         "Tadpole HQ - Blessley":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Tadpole HQ Textbox", player))
-                          and (options.bug_catching.value != 1 or state.has("Bug Net", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player))
+                          and (options.bug_catching.value != 1 or state.has("Bug Net", player))),
         "Hairball City - Blessley":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Hairball City Textbox", player))
-                          and (options.bug_catching.value != 1 or state.has("Bug Net", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Hairball City Textbox", player))
+                          and (options.bug_catching.value != 1 or state.has("Bug Net", player))),
         "Turbine Town - Blessley":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Turbine Town Textbox", player))
-                          and (options.bug_catching.value != 1 or state.has("Bug Net", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Turbine Town Textbox", player))
+                          and (options.bug_catching.value != 1 or state.has("Bug Net", player))),
         "Salmon Creek Forest - Blessley":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Salmon Creek Forest Textbox", player))
-                          and (options.bug_catching.value != 1 or state.has("Bug Net", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))
+                          and (options.bug_catching.value != 1 or state.has("Bug Net", player))),
         "Turbine Town - Shipping Container With Breakable Boxes":
             lambda state: (options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
         "Bathhouse - Breakable Box Inside Bathhouse Box":
@@ -1437,90 +1449,115 @@ def get_location_rules(player, world):
             lambda state: state.has("Tadpole HQ Key", player),
 
         "Home - Give High Frog Lunchbox":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Home Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Home Textbox", player))),
         "Hairball City - BIG VOLLEY":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Hairball City Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Hairball City Textbox", player))),
         "Hairball City - Dustan on Lighthouse":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Hairball City Textbox", player))
-                          and (options.parasols.value != 1 or state.has("Parasol Repair", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Hairball City Textbox", player))
+                          and (options.parasols.value != 1 or state.has("Parasol Repair", player))),
         "Hairball City - Gunter on Skyscraper":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Hairball City Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Hairball City Textbox", player))),
         "Hairball City - Handsome Frog":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Hairball City Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Hairball City Textbox", player))),
 
         "Turbine Town - AIR VOLLEY":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Turbine Town Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Turbine Town Textbox", player))),
         "Turbine Town - Handsome Frog":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Turbine Town Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Turbine Town Textbox", player))),
         "Turbine Town - Pelly the Engineer":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Turbine Town Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Turbine Town Textbox", player))),
 
         "Salmon Creek Forest - Dustan on Mountain":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Salmon Creek Forest Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))),
         "Salmon Creek Forest - Handsome Frog":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Salmon Creek Forest Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))),
         "Salmon Creek Forest - Nina":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Salmon Creek Forest Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))),
         "Salmon Creek Forest - Stijn & Melissa":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Salmon Creek Forest Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))),
         "Salmon Creek Forest - Treeman":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Salmon Creek Forest Textbox", player))
-                          and (options.bonk_permit.value != 1 or state.has("Safety Helmet", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Salmon Creek Forest Textbox", player))
+                          and (options.bonk_permit.value != 1 or state.has("Safety Helmet", player))),
 
         "Public Pool - Frogtective":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Public Pool Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Public Pool Textbox", player))),
         "Public Pool - Handsome Frog":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Public Pool Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Public Pool Textbox", player))),
 
         "Bathhouse - Dustan on Bathhouse":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Bathhouse Textbox", player))
-                          and (options.ac_repair.value != 1 or state.has("AC Repair", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Bathhouse Textbox", player))
+                          and (options.ac_repair.value != 1 or state.has("AC Repair", player))),
         "Bathhouse - Game Kid":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Bathhouse Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Bathhouse Textbox", player))),
         "Bathhouse - Handsome Frog":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Bathhouse Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Bathhouse Textbox", player))),
         "Bathhouse - LONG VOLLEY":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Bathhouse Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Bathhouse Textbox", player))),
         "Bathhouse - Nina":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Bathhouse Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Bathhouse Textbox", player))),
         "Bathhouse - Serschel & Louist":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Bathhouse Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Bathhouse Textbox", player))),
 
         "Tadpole HQ - Dojo Guy":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Tadpole HQ Textbox", player))
-                          and (options.applebasket.value != 1 or state.has("Apple Basket", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player))
+                          and (options.applebasket.value != 1 or state.has("Apple Basket", player))),
         "Tadpole HQ - Serschel & Louist":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Tadpole HQ Textbox", player))
-                          and (options.parasols.value != 1 or state.has("Parasol Repair", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player))
+                          and (options.parasols.value != 1 or state.has("Parasol Repair", player))),
         "Tadpole HQ - Frog King":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Tadpole HQ Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player))),
         "Tadpole HQ - HUGE VOLLEY":
-            lambda state: ((options.textbox.value != 1 or state.has("Textbox", player))
-                            or options.textbox.value != 2 or state.has("Tadpole HQ Textbox", player)),
+            lambda state: (options.textbox.value == 0
+                           or (options.textbox.value == 1 and state.has("Textbox", player))
+                           or (options.textbox.value == 2 and state.has("Tadpole HQ Textbox", player))),
 
         "Hairball City - Blippy (Chatsanity)":
             lambda state: (state.has("Contact List 2", player)
