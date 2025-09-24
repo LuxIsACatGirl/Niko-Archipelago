@@ -35,7 +35,8 @@ def total_coins(world) -> int:
     count: int = 76
     if world.options.shuffle_garys_garden.value:
         count += 3
-
+    if world.options.applesanity.value != 0 or world.options.chatsanity.value != 0 or world.options.bugsanity.value != 0 or world.options.bonesanity.value != 0 or world.options.flowersanity.value != 0 or world.options.seedsanity.value != 0:
+        count = world.options.total_coins.value
     return count
 
 class ShuffleKioskReward(DefaultOnToggle):
@@ -90,14 +91,44 @@ class KeysLevelBased(Toggle):
     display_name = "Level Specific Keys"
 
 
+class TotalCoins(Range):
+    """Maximum number of Coins that can exist"""
+    display_name = "Total Coins"
+    range_start = 0
+    range_end = 150
+    default = 70
+
+
 class GoalCompletion(Choice):
     """Set your Completion Goal.
     Hired: Reach Pepper's Interview and get hired!
-    Employee: Get 76 Coins and be the Employee Of The Month!"""
+    Employee: Get 76 Coins and be the Employee Of The Month!
+    Custom: Get a custom amount of coins to complete the game!
+    Garden: Restore Gary's Garden to its former glory!
+    Help: """
     display_name = "Completion Goal"
     option_hired = 0
     option_employee = 1
+    option_custom = 2
+    option_garden = 3
+    option_help = 4
     default = 0
+
+
+class MinCustomGoalCost(Range):
+    """Determines the lowest possible cost the custom goal"""
+    display_name = "Minimum Custom Goal Cost"
+    range_start = 10
+    range_end = 70
+    default = 20
+
+
+class MaxCustomGoalCost(Range):
+    """Determines the highest possible cost the custom goal."""
+    display_name = "Maximum Custom Goal Cost"
+    range_start = 20
+    range_end = 150
+    default = 50
 
 
 class MinKioskCost(Range):
@@ -207,10 +238,18 @@ class Swimming(Toggle):
     display_name = "Swimming"
 
 
-class Textbox(Toggle):
-    """When enabled, the item 'Textbox' is required to talk to NPCs."""
+class Textbox(Choice):
+    """Want to have a break talking with NPCs?
+    Vanilla: Normal Here Comes Niko! behaviour
+    -----------------------------------------------------------
+    Global: The item 'Textbox' is required to interact with anything that uses the textbox
+    -----------------------------------------------------------
+    Level: Every level requires its own textbox item to interact with anything that uses the textbox, so Hairball City needs 'Hairball City Textbox'"""
     display_name = "Textbox"
-
+    option_vanilla = 0
+    option_level = 2
+    option_global = 1
+    default = 0
 
 class AirConditioning(Toggle):
     """When enabled, ACs are broken, the item 'AC Repair' will make the frog engineers repair them."""
@@ -446,6 +485,7 @@ class HereComesNikoOptions(PerGameCommonOptions):
     death_link_amnesty: DeathLinkAmnesty
     trap_link: TrapLink
 
+    total_coins: TotalCoins
     shuffle_kiosk_reward: ShuffleKioskReward
     start_with_ticket: StartWithTicket
     enable_achievements: EnableAchievements
@@ -464,6 +504,8 @@ class HereComesNikoOptions(PerGameCommonOptions):
     max_kiosk_cost: MaxKioskCost
     min_elevator_cost: MinElevatorCost
     max_elevator_cost: MaxElevatorCost
+    min_custom_goal_cost: MinCustomGoalCost
+    max_custom_goal_cost: MaxCustomGoalCost
 
     bonk_permit: BonkPermit
     bug_catching: BugNet
@@ -503,9 +545,12 @@ hcniko_option_groups = [
         MinKioskCost,
         MaxKioskCost,
         MinElevatorCost,
-        MaxElevatorCost
+        MaxElevatorCost,
+        MinCustomGoalCost,
+        MaxCustomGoalCost
     ]),
     OptionGroup("General Options", [
+        TotalCoins,
         ShuffleKioskReward,
         StartWithTicket,
         CassetteLogic,

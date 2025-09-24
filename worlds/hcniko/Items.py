@@ -96,9 +96,19 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Soda Repair": HereComesNikoItemData(base_id + 103, type=ItemClassification.progression, can_create=lambda options: options.soda_cans.value != 0, item_group="Soda Cans"),
     "Parasol Repair": HereComesNikoItemData(base_id + 104, type=ItemClassification.progression, can_create=lambda options: options.parasols.value != 0, item_group="Parasols"),
     "Swim Course": HereComesNikoItemData(base_id + 105, type=ItemClassification.progression, can_create=lambda options: options.swimming.value != 0, item_group="Swimming"),
-    "Textbox": HereComesNikoItemData(base_id + 106, type=ItemClassification.progression, can_create=lambda options: options.textbox.value != 0),
     "AC Repair": HereComesNikoItemData(base_id + 107, type=ItemClassification.progression, can_create=lambda options: options.ac_repair.value != 0, item_group="AC"),
     "Apple Basket": HereComesNikoItemData(base_id + 108, type=ItemClassification.progression, can_create=lambda options: options.applebasket.value != 0, item_group="Basket"),
+
+    # Textbox
+    "Textbox": HereComesNikoItemData(base_id + 106, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 1),
+    "Home Textbox": HereComesNikoItemData(base_id + 140, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Hairball City Textbox": HereComesNikoItemData(base_id + 141, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Turbine Town Textbox": HereComesNikoItemData(base_id + 142, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Salmon Creek Forest Textbox": HereComesNikoItemData(base_id + 143, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Public Pool Textbox": HereComesNikoItemData(base_id + 144, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Bathhouse Textbox": HereComesNikoItemData(base_id + 145, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Tadpole HQ Textbox": HereComesNikoItemData(base_id + 146, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Gary's Garden Textbox": HereComesNikoItemData(base_id + 147, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
 
     # Bonesanity
     "Hairball City Bone": HereComesNikoItemData(base_id + 111, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.bonesanity.value == 2, item_group="Bone"),
