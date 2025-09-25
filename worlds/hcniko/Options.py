@@ -35,8 +35,8 @@ def total_coins(world) -> int:
     count: int = 76
     if world.options.shuffle_garys_garden.value:
         count += 3
-    if world.options.applesanity.value != 0 or world.options.chatsanity.value != 0 or world.options.bugsanity.value != 0 or world.options.bonesanity.value != 0 or world.options.flowersanity.value != 0 or world.options.seedsanity.value != 0:
-        count = world.options.total_coins.value
+    # if world.options.applesanity.value != 0 or world.options.chatsanity.value != 0 or world.options.bugsanity.value != 0 or world.options.bonesanity.value != 0 or world.options.flowersanity.value != 0 or world.options.seedsanity.value != 0:
+    #     count = world.options.total_coins.value
     return count
 
 class ShuffleKioskReward(DefaultOnToggle):
@@ -91,12 +91,12 @@ class KeysLevelBased(Toggle):
     display_name = "Level Specific Keys"
 
 
-class TotalCoins(Range):
-    """Maximum number of Coins that can exist"""
-    display_name = "Total Coins"
-    range_start = 0
-    range_end = 150
-    default = 70
+# class TotalCoins(Range):
+#     """Maximum number of Coins that can exist"""
+#     display_name = "Total Coins"
+#     range_start = 0
+#     range_end = 150
+#     default = 70
 
 
 class GoalCompletion(Choice):
@@ -109,26 +109,26 @@ class GoalCompletion(Choice):
     display_name = "Completion Goal"
     option_hired = 0
     option_employee = 1
-    option_custom = 2
+    #option_custom = 2
     option_garden = 3
     option_help = 4
     default = 0
 
 
-class MinCustomGoalCost(Range):
-    """Determines the lowest possible cost the custom goal"""
-    display_name = "Minimum Custom Goal Cost"
-    range_start = 10
-    range_end = 70
-    default = 20
-
-
-class MaxCustomGoalCost(Range):
-    """Determines the highest possible cost the custom goal."""
-    display_name = "Maximum Custom Goal Cost"
-    range_start = 20
-    range_end = 150
-    default = 50
+# class MinCustomGoalCost(Range):
+#     """Determines the lowest possible cost the custom goal"""
+#     display_name = "Minimum Custom Goal Cost"
+#     range_start = 10
+#     range_end = 70
+#     default = 20
+#
+#
+# class MaxCustomGoalCost(Range):
+#     """Determines the highest possible cost the custom goal."""
+#     display_name = "Maximum Custom Goal Cost"
+#     range_start = 20
+#     range_end = 150
+#     default = 50
 
 
 class MinKioskCost(Range):
@@ -485,7 +485,7 @@ class HereComesNikoOptions(PerGameCommonOptions):
     death_link_amnesty: DeathLinkAmnesty
     trap_link: TrapLink
 
-    total_coins: TotalCoins
+    #total_coins: TotalCoins
     shuffle_kiosk_reward: ShuffleKioskReward
     start_with_ticket: StartWithTicket
     enable_achievements: EnableAchievements
@@ -504,8 +504,8 @@ class HereComesNikoOptions(PerGameCommonOptions):
     max_kiosk_cost: MaxKioskCost
     min_elevator_cost: MinElevatorCost
     max_elevator_cost: MaxElevatorCost
-    min_custom_goal_cost: MinCustomGoalCost
-    max_custom_goal_cost: MaxCustomGoalCost
+    #min_custom_goal_cost: MinCustomGoalCost
+    #max_custom_goal_cost: MaxCustomGoalCost
 
     bonk_permit: BonkPermit
     bug_catching: BugNet
@@ -546,11 +546,11 @@ hcniko_option_groups = [
         MaxKioskCost,
         MinElevatorCost,
         MaxElevatorCost,
-        MinCustomGoalCost,
-        MaxCustomGoalCost
+        #MinCustomGoalCost,
+        #MaxCustomGoalCost
     ]),
     OptionGroup("General Options", [
-        TotalCoins,
+        #TotalCoins,
         ShuffleKioskReward,
         StartWithTicket,
         CassetteLogic,
