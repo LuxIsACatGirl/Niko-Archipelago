@@ -822,6 +822,10 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Hairball City - Dispatcher (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1174, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Hairball City - Handsome Frog (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1370, can_create=lambda options: options.chatsanity.value==1 and options.shuffle_handsome_frog.value, location_group="Chatsanity"),
     "Hairball City - Hasselhop (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1441, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Hairball City - Bone Dog (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1900, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Hairball City - Kappa (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1901, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Hairball City - Dog (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1910, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Hairball City - Dog 2 (Chatsanity)": HereComesNikoLocationData(region="ChatHC",id=base_id + 1911, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
 
     "Turbine Town - Tip Frog (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1175, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Turbine Town - Train Frog (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1176, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
@@ -858,6 +862,10 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Turbine Town - Dispatcher (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1207, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Turbine Town - Handsome Frog (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1371, can_create=lambda options: options.chatsanity.value==1 and options.shuffle_handsome_frog.value, location_group="Chatsanity"),
     "Turbine Town - Hasselhop (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1442, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Turbine Town - Kappa (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1902, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Turbine Town - Bone Dog (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1903, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Turbine Town - Dog (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1912, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Turbine Town - Dog 2 (Chatsanity)": HereComesNikoLocationData(region="ChatTT",id=base_id + 1913, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
 
     "Salmon Creek Forest - Stijn's Dad (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1208, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Stijn's Mom (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1209, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
@@ -907,6 +915,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Salmon Creek Forest - Hasselhop (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1443, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Nina (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1450, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Salmon Creek Forest - Game Kid (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1451, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Salmon Creek Forest - Bone Dog (Chatsanity)": HereComesNikoLocationData(region="ChatSCF",id=base_id + 1904, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
 
     "Public Pool - Culley (Chatsanity)": HereComesNikoLocationData(region="ChatPP",id=base_id + 1252, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Public Pool - Hat Kid (Chatsanity)": HereComesNikoLocationData(region="ChatPP",id=base_id + 1253, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
@@ -947,6 +956,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Public Pool - Dispatcher (Chatsanity)": HereComesNikoLocationData(region="ChatPP",id=base_id + 1288, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Public Pool - Handsome Frog (Chatsanity)": HereComesNikoLocationData(region="ChatPP",id=base_id + 1373, can_create=lambda options: options.chatsanity.value==1 and options.shuffle_handsome_frog.value, location_group="Chatsanity"),
     "Public Pool - Hasselhop (Chatsanity)": HereComesNikoLocationData(region="ChatPP",id=base_id + 1444, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Public Pool - Bone Dog (Chatsanity)": HereComesNikoLocationData(region="ChatPP",id=base_id + 1905, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
 
     "Bathhouse - Melissa (Chatsanity)": HereComesNikoLocationData(region="ChatBath",id=base_id + 1289, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Bathhouse - Stijn (Chatsanity)": HereComesNikoLocationData(region="ChatBath",id=base_id + 1290, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
@@ -995,6 +1005,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Bathhouse - Nina (Chatsanity)": HereComesNikoLocationData(region="ChatBath",id=base_id + 1448, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Bathhouse - Game Kid (Chatsanity)": HereComesNikoLocationData(region="ChatBath",id=base_id + 1449, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Bathhouse - Moomy (Chatsanity)": HereComesNikoLocationData(region="ChatBath",id=base_id + 1452, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Bathhouse - Bone Dog (Chatsanity)": HereComesNikoLocationData(region="ChatBath",id=base_id + 1906, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
 
     "Tadpole HQ - (Ex)Employee Of The Month (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1331, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     #"Tadpole HQ - Vlog Frog (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1332, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
@@ -1035,6 +1046,8 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Tadpole HQ - Fix Frog (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1367, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Tadpole HQ - King (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1368, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
     "Tadpole HQ - Hasselhop (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1446, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Tadpole HQ - Bone Dog (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1907, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
+    "Tadpole HQ - Dog (Chatsanity)": HereComesNikoLocationData(region="ChatHQ",id=base_id + 1914, can_create=lambda options: options.chatsanity.value==1, location_group="Chatsanity"),
 
     "Gary's Garden - Gary (Chatsanity)": HereComesNikoLocationData(region="ChatGarden",id=base_id + 1380, can_create=lambda options: options.chatsanity.value==1 and options.shuffle_garys_garden.value, location_group="Chatsanity"),
     "Gary's Garden - Danger Frog (Chatsanity)": HereComesNikoLocationData(region="ChatGarden",id=base_id + 1381, can_create=lambda options: options.chatsanity.value==1 and options.shuffle_garys_garden.value, location_group="Chatsanity"),
@@ -1246,6 +1259,10 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Chatsanity - Hungry Frog": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2151, can_create=lambda options: options.chatsanity.value==2 and options.shuffle_garys_garden.value, location_group="Chatsanity"),
     "Chatsanity - Flower Frog": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2152, can_create=lambda options: options.chatsanity.value==2 and options.shuffle_garys_garden.value, location_group="Chatsanity"),
     "Chatsanity - Conspiracy Frog": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2153, can_create=lambda options: options.chatsanity.value==2 and options.shuffle_garys_garden.value, location_group="Chatsanity"),
+    "Chatsanity - Bone Dog": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2154, can_create=lambda options: options.chatsanity.value==2, location_group="Chatsanity"),
+    "Chatsanity - Kappa": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2155, can_create=lambda options: options.chatsanity.value==2, location_group="Chatsanity"),
+    "Chatsanity - Dog": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2156, can_create=lambda options: options.chatsanity.value==2, location_group="Chatsanity"),
+    "Chatsanity - Dog 2": HereComesNikoLocationData(region="Chatsanity",id=base_id + 2157, can_create=lambda options: options.chatsanity.value==2, location_group="Chatsanity"),
 
     #Bugsanity
     "Hairball City - Bug 1": HereComesNikoLocationData(region="BugsHC",id=base_id + 1501, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
