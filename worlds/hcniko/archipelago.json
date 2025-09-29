@@ -1,9 +1,7 @@
 {
-    "minimum_ap_version": "0.6.3", 
+    "game": "Here Comes Niko!",
     "world_version": "0.8.0",
-    "version": 6,
-    "compatible_version": 5,
     "authors": ["nieli"],
-    "game": "Here Comes Niko!"
+    "minimum_ap_version": "0.6.3"
 }
     
