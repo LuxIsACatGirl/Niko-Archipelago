@@ -193,10 +193,18 @@ def get_location_rules(player, world):
             world.kiosk_cost[kiosk_name] = cost
             last_cost = cost
 
+    # Don't count Gary's Garden locations when they are disabled
+    cassette_locations = list(world.cassette_cost.keys())
+    if not options.shuffle_garys_garden.value:
+        cassette_locations = [
+            loc for loc in cassette_locations
+            if not loc.startswith("Gary's Garden")
+        ]
+    cassette_location_count = len(cassette_locations)
+    cassette_values = list(range(1, cassette_location_count + 1))
+
     if options.cassette_logic.value == 2:
-        cassette_values = list(range(1, 14 + 1))
         world.random.shuffle(cassette_values)
-        cassette_locations = list(world.cassette_cost.keys())
         for i, location_name in enumerate(cassette_locations):
             world.cassette_cost[location_name] = cassette_values[i]
     elif options.cassette_logic.value == 0:
@@ -207,8 +215,6 @@ def get_location_rules(player, world):
             elif "Mai" in location_name:
                 world.cassette_cost[location_name] = 10
     else:
-        cassette_values = list(range(1, 14 + 1))
-        cassette_locations = list(world.cassette_cost.keys())
         for i, location_name in enumerate(cassette_locations):
             world.cassette_cost[location_name] = cassette_values[i]
 
