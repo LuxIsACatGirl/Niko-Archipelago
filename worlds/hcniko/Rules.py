@@ -76,7 +76,83 @@ def can_restore_garden(state: CollectionState, player, world):
 
 def has_helped_everyone(state: CollectionState, player, world):
     if world.options.goal_completion.value == 4:
-        return state.has("Gary's Garden Seed", player, 10)
+        return (state.can_reach_location("Home - Give High Frog Lunchbox", player)
+                and state.can_reach_location("Hairball City - BIG VOLLEY", player)
+                and state.can_reach_location("Hairball City - Dustan on Lighthouse", player)
+                and state.can_reach_location("Hairball City - Gunter on Skyscraper", player)
+                and state.can_reach_location("Hairball City - Nina", player)
+                and state.can_reach_location("Hairball City - Moomy", player)
+                and state.can_reach_location("Hairball City - Fish with Fischer", player)
+                and state.can_reach_location("Hairball City - Game Kid", player)
+                and state.can_reach_location("Hairball City - Blippy Dog", player)
+                and state.can_reach_location("Hairball City - Blippy", player)
+                and state.can_reach_location("Hairball City - Serschel & Louist", player)
+                and state.can_reach_location("Hairball City - Little Gabi's Flowers", player)
+                and state.can_reach_location("Hairball City - Blessley", player)
+                and state.can_reach_location("Turbine Town - Blippy Dog", player)
+                and state.can_reach_location("Turbine Town - Blippy", player)
+                and state.can_reach_location("Turbine Town - Serschel & Louist", player)
+                and state.can_reach_location("Turbine Town - Dustan on Wind Turbine", player)
+                and state.can_reach_location("Turbine Town - Little Gabi's Flowers", player)
+                and state.can_reach_location("Turbine Town - Blessley", player)
+                and state.can_reach_location("Turbine Town - AIR VOLLEY", player)
+                and state.can_reach_location("Turbine Town - Pelly the Engineer", player)
+                and state.can_reach_location("Turbine Town - Fish with Fischer", player)
+                and state.can_reach_location("Salmon Creek Forest - Dustan on Mountain", player)
+                and state.can_reach_location("Salmon Creek Forest - Nina", player)
+                and state.can_reach_location("Salmon Creek Forest - Stijn & Melissa", player)
+                and state.can_reach_location("Salmon Creek Forest - Treeman", player)
+                and state.can_reach_location("Salmon Creek Forest - Blessley", player)
+                and state.can_reach_location("Salmon Creek Forest - Little Gabi's Flowers", player)
+                and state.can_reach_location("Salmon Creek Forest - Game Kid", player)
+                and state.can_reach_location("Salmon Creek Forest - Blippy", player)
+                and state.can_reach_location("Salmon Creek Forest - Serschel & Louist", player)
+                and state.can_reach_location("Salmon Creek Forest - Blippy Dog", player)
+                and state.can_reach_location("Salmon Creek Forest - Fish with Fischer", player)
+                and state.can_reach_location("Salmon Creek Forest - SPORTVIVAL", player)
+                and state.can_reach_location("Salmon Creek Forest - Moomy", player)
+                and state.can_reach_location("Public Pool - Blippy", player)
+                and state.can_reach_location("Public Pool - Frogtective", player)
+                and state.can_reach_location("Public Pool - Blippy Dog", player)
+                and state.can_reach_location("Public Pool - Little Gabi's Flowers", player)
+                and state.can_reach_location("Public Pool - Blessley", player)
+                and state.can_reach_location("Public Pool - SPORTVIVAL VOLLEY", player)
+                and state.can_reach_location("Public Pool - Fish with Fischer", player)
+                and state.can_reach_location("Bathhouse - Poppy", player)
+                and state.can_reach_location("Bathhouse - Fish with Fischer", player)
+                and state.can_reach_location("Bathhouse - Blessley", player)
+                and state.can_reach_location("Bathhouse - Little Gabi's Flowers", player)
+                and state.can_reach_location("Bathhouse - Blippy Dog", player)
+                and state.can_reach_location("Bathhouse - Blippy", player)
+                and state.can_reach_location("Bathhouse - Dustan on Bathhouse", player)
+                and state.can_reach_location("Bathhouse - Game Kid", player)
+                and state.can_reach_location("Bathhouse - LONG VOLLEY", player)
+                and state.can_reach_location("Bathhouse - Nina", player)
+                and state.can_reach_location("Bathhouse - Serschel & Louist", player)
+                and state.can_reach_location("Bathhouse - Moomy", player)
+                and state.can_reach_location("Tadpole HQ - Blippy", player)
+                and state.can_reach_location("Tadpole HQ - Little Gabi's Flowers", player)
+                and state.can_reach_location("Tadpole HQ - Blippy Dog", player)
+                and state.can_reach_location("Tadpole HQ - Blessley", player)
+                and state.can_reach_location("Tadpole HQ - Serschel & Louist", player)
+                and state.can_reach_location("Tadpole HQ - Frog King", player)
+                and state.can_reach_location("Tadpole HQ - HUGE VOLLEY", player)
+                and state.can_reach_location("Tadpole HQ - Fish with Fischer", player)
+                and state.can_reach_location("Gary's Garden - Gunter & Little Gabi", player)
+                and state.can_reach_location("Hairball City - Mitch", player)
+                and state.can_reach_location("Hairball City - Mai", player)
+                and state.can_reach_location("Turbine Town - Mitch", player)
+                and state.can_reach_location("Turbine Town - Mai", player)
+                and state.can_reach_location("Salmon Creek Forest - Mai", player)
+                and state.can_reach_location("Salmon Creek Forest - Mitch", player)
+                and state.can_reach_location("Public Pool - Mitch", player)
+                and state.can_reach_location("Public Pool - Mai", player)
+                and state.can_reach_location("Bathhouse - Mitch", player)
+                and state.can_reach_location("Bathhouse - Mai", player)
+                and state.can_reach_location("Tadpole HQ - Mai", player)
+                and state.can_reach_location("Tadpole HQ - Mitch", player)
+                and state.can_reach_location("Gary's Garden - Mai", player)
+                and state.can_reach_location("Gary's Garden - Mitch", player))
     else:
         return True
 
@@ -231,8 +307,8 @@ def get_location_rules(player, world):
             lambda state: has_enough_coins(state, player, world.custom_goal_required),
         "Restored Gary's Garden!":
             lambda state: can_restore_garden(state, player, world),
-        # "Helped Everyone!":
-        #     lambda state: state.can_reach_location(""),
+        "Helped Everyone!":
+            lambda state: has_helped_everyone(state, player, world),
 
         "Home - Kiosk":
             lambda state: (state.has("Coin", player, world.kiosk_cost["Kiosk Home"]))
@@ -278,7 +354,9 @@ def get_location_rules(player, world):
         "Achievement - Volley Dreams":
             lambda state: has_all_tickets(state, player)
                           and (state.has("Contact List 2", player)
-                          or state.has("Progressive Contact List", player, 2)),
+                          or state.has("Progressive Contact List", player, 2))
+                          and (state.has("Contact List 1", player)
+                          or state.has("Progressive Contact List", player, 1)),
         "Achievement - Snail Fashion Show":
             lambda state: has_all_tickets(state, player),
         "Turbine Town - Dustan on Wind Turbine":
@@ -1134,6 +1212,8 @@ def get_location_rules(player, world):
         "Public Pool - Apple On Far Away Island 24":
             lambda state: (options.soda_cans.value != 1 or state.has("Soda Repair", player))
                           and (options.parasols.value != 1 or state.has("Parasol Repair", player)),
+        "Tadpole HQ - Big Tree Next To Louist":
+            lambda state: (options.soda_cans.value != 1 or state.has("Soda Repair", player)),
 
         "Turbine Town - Near Fishing Containers":
             lambda state: (options.ac_repair.value != 1 or state.has("AC Repair", player)),
@@ -2157,7 +2237,7 @@ def get_location_rules(player, world):
         "Tadpole HQ - Pepper (Chatsanity)":
             lambda state: has_enough_coins(state, player, world.kiosk_cost["Elevator"]),
         "Gary's Garden - Hasselhop (Chatsanity)":
-            lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
+            lambda state: (options.goal_completion.value != 3 or state.has("Gary's Garden Seed", player, 10)),
         "Chatsanity - Bone Dog":
             lambda state: (state.has("Hairball City Ticket", player)
                               and (state.has("Contact List 1", player)
@@ -2203,4 +2283,23 @@ def get_location_rules(player, world):
                           or (state.has("Turbine Town Ticket", player)
                               and (state.has("Contact List 2", player)
                                    or state.has("Progressive Contact List", player, 2))),
+        # Gary's Garden Seeds
+        "Gary's Garden - Seed 2":
+            lambda state: state.has("Gary's Garden Seed", player, 1),
+        "Gary's Garden - Seed 3":
+            lambda state: state.has("Gary's Garden Seed", player, 2),
+        "Gary's Garden - Seed 4":
+            lambda state: state.has("Gary's Garden Seed", player, 3),
+        "Gary's Garden - Seed 5":
+            lambda state: state.has("Gary's Garden Seed", player, 4),
+        "Gary's Garden - Seed 6":
+            lambda state: state.has("Gary's Garden Seed", player, 5),
+        "Gary's Garden - Seed 7":
+            lambda state: state.has("Gary's Garden Seed", player, 6),
+        "Gary's Garden - Seed 8":
+            lambda state: state.has("Gary's Garden Seed", player, 7),
+        "Gary's Garden - Seed 9":
+            lambda state: state.has("Gary's Garden Seed", player, 8),
+        "Gary's Garden - Seed 10":
+            lambda state: state.has("Gary's Garden Seed", player, 9),
     }

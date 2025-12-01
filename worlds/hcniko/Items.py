@@ -43,6 +43,9 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Phone Trap": HereComesNikoItemData(base_id + 77, type=ItemClassification.trap),
     "Tiny Trap": HereComesNikoItemData(base_id + 78, type=ItemClassification.trap),
     "Jumping Jacks Trap": HereComesNikoItemData(base_id + 79, type=ItemClassification.trap),
+    "Camera Stuck Trap": HereComesNikoItemData(base_id + 81, type=ItemClassification.trap),
+    "Inverted Camera Trap": HereComesNikoItemData(base_id + 82, type=ItemClassification.trap),
+    "There Goes Niko Trap": HereComesNikoItemData(base_id + 83, type=ItemClassification.trap),
 
     # Fishsanity
     "Hairball City Fish": HereComesNikoItemData(base_id + 20, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.fishsanity.value == 2, item_group="Fish"),
@@ -108,7 +111,7 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Public Pool Textbox": HereComesNikoItemData(base_id + 144, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
     "Bathhouse Textbox": HereComesNikoItemData(base_id + 145, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
     "Tadpole HQ Textbox": HereComesNikoItemData(base_id + 146, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
-    "Gary's Garden Textbox": HereComesNikoItemData(base_id + 147, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2, item_group="Textboxes"),
+    "Gary's Garden Textbox": HereComesNikoItemData(base_id + 147, type=ItemClassification.progression, can_create=lambda options: options.textbox.value == 2 and options.shuffle_garys_garden.value, item_group="Textboxes"),
 
     # Bonesanity
     "Hairball City Bone": HereComesNikoItemData(base_id + 111, type=ItemClassification.progression, num_exist=5, can_create=lambda options: options.bonesanity.value == 2, item_group="Bone"),
@@ -128,6 +131,9 @@ item_data_table: Dict[str, HereComesNikoItemData] = {
     "Tadpole HQ Ticket": HereComesNikoItemData(base_id + 13, type=ItemClassification.progression, can_create=lambda options: options.shuffle_kiosk_reward.value, item_group="Tickets"),
     "Gary's Garden Ticket": HereComesNikoItemData(base_id + 17, type=ItemClassification.progression, can_create=lambda options: options.shuffle_kiosk_reward.value and options.access_garys_garden.value != 0 and options.shuffle_garys_garden.value, item_group="Tickets"),
     "Party Invitation": HereComesNikoItemData(base_id + 80, type=ItemClassification.progression, can_create=lambda options: options.chatsanity.value != 0, item_group="Tickets"),
+
+    # Garden Goal
+    "Gary's Garden Seed": HereComesNikoItemData(base_id + 250, type=ItemClassification.progression, num_exist=10, can_create=lambda options: options.goal_completion.value == 3, item_group="Seeds"),
 
     "Victory": HereComesNikoItemData(type=ItemClassification.progression, can_create=lambda options: False)
 }

@@ -227,7 +227,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Gary's Garden - Behind Large Rock": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 190, can_create=lambda options: options.shuffle_garys_garden.value),
     "Gary's Garden - Small Rocks In Water": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 191, can_create=lambda options: options.shuffle_garys_garden.value),
     "Gary's Garden - Next To Train": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 192, can_create=lambda options: options.shuffle_garys_garden.value),
-    "Gary's Garden - Gunter & Little Gabi": HereComesNikoLocationData(region="Gary's Garden", id=base_id + 198, can_create=lambda options: options.shuffle_garys_garden.value),
+    "Gary's Garden - Gunter & Little Gabi": HereComesNikoLocationData(region="Gary's Garden", id=base_id + 198, can_create=lambda options: options.shuffle_garys_garden.value and options.goal_completion.value != 3),
     "Gary's Garden - Mai": HereComesNikoLocationData(region="Gary's Garden", id=base_id + 199, can_create=lambda options: options.shuffle_garys_garden.value and options.cassette_logic.value!=1, location_group="Mitch & Mai"),
     "Gary's Garden - Mitch": HereComesNikoLocationData(region="Gary's Garden", id=base_id + 200, can_create=lambda options: options.shuffle_garys_garden.value and options.cassette_logic.value!=1, location_group="Mitch & Mai"),
     "Gary's Garden - Handsome Frog": HereComesNikoLocationData(region="Gary's Garden", id=base_id + 201, can_create=lambda options: options.shuffle_garys_garden.value and options.shuffle_handsome_frog.value, location_group="Handsome Frog"),
@@ -1652,9 +1652,24 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Tadpole HQ - Bone 4": HereComesNikoLocationData(region="Tadpole HQ",id=base_id + 2229, can_create=lambda options: options.bonesanity.value != 0, location_group="Bonesanity"),
     "Tadpole HQ - Bone 5": HereComesNikoLocationData(region="Tadpole HQ",id=base_id + 2230, can_create=lambda options: options.bonesanity.value != 0, location_group="Bonesanity"),
 
+    # Garden Seeds
+    "Gary's Garden - Seed 1": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2301, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 2": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2302, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 3": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2303, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 4": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2304, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 5": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2305, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 6": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2306, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 7": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2307, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 8": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2308, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 9": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2309, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+    "Gary's Garden - Seed 10": HereComesNikoLocationData(region="Gary's Garden",id=base_id + 2310, can_create=lambda options: options.goal_completion.value == 3, location_group="Garden Seeds"),
+
     # Victory
     "You're Hired!": HereComesNikoLocationData(region="Home Party", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 0),
-    "Best Employee!": HereComesNikoLocationData(region="Home", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 1)
+    "Best Employee!": HereComesNikoLocationData(region="Home", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 1),
+    "Coin Collector!": HereComesNikoLocationData(region="Home", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 2),
+    "Restored Gary's Garden!": HereComesNikoLocationData(region="Gary's Garden", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 3),
+    "Helped Everyone!": HereComesNikoLocationData(region="Home", locked_item="Victory", can_create=lambda options: options.goal_completion.value == 4)
 }
 
 location_name_groups: Dict[str, Set[str]] = {}
