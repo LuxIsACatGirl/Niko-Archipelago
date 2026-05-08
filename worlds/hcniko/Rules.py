@@ -2297,7 +2297,7 @@ def get_location_rules(player, world):
                           or (state.has("Turbine Town Ticket", player)
                               and (state.has("Contact List 2", player)
                                    or state.has("Progressive Contact List", player, 2))),
-        "Tadpole HQ - Niko has nightmares(Thought)":
+        "Tadpole HQ - Niko has nightmares (Thought)":
             lambda state: has_enough_coins(state, player, world.kiosk_cost["Elevator"]),
         "Tadpole HQ - Inbetween Four Skyscrapers":
             lambda state: (options.swimming.value != 1
