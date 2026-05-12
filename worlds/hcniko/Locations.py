@@ -1454,7 +1454,7 @@ location_data_table: Dict[str, HereComesNikoLocationData] = {
     "Salmon Creek Forest - Bug Near Blessley 8": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1685, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
     "Salmon Creek Forest - Bug Near Stijn's Parent's House 1": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1686, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
     "Salmon Creek Forest - Bug On Cassette Rock Next To Flowerbed By Stijn 2": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1687, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
-    "Salmon Creek Forest - Bug Near Fallen Tree 2": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1688, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
+    "Salmon Creek Forest - Bug Near Fallen Tree 1": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1688, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
     "Salmon Creek Forest - Bug Between Wooden Bridge Cassette And Wooden Stairs": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1689, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
     "Salmon Creek Forest - Bug Near Flowerbed Above Frog Statue Pond 2": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1690, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
     "Salmon Creek Forest - Bug Near Stijn's Parent's House 2": HereComesNikoLocationData(region="BugsSCF",id=base_id + 1691, can_create=lambda options: options.bugsanity.value==1, location_group="Bugsanity"),
