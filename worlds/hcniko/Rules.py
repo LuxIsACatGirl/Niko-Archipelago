@@ -357,7 +357,10 @@ def get_location_rules(player, world):
                           and (state.has("Contact List 2", player)
                           or state.has("Progressive Contact List", player, 2))
                           and (state.has("Contact List 1", player)
-                          or state.has("Progressive Contact List", player, 1)),
+                          or state.has("Progressive Contact List", player, 1))
+                          and (options.swimming.value != 1
+                          or options.precisejumps.value == 1
+                          or state.has("Swim Course", player)),
         "Achievement - Snail Fashion Show":
             lambda state: has_all_tickets(state, player),
         "Turbine Town - Dustan on Wind Turbine":
@@ -1248,6 +1251,10 @@ def get_location_rules(player, world):
 
         "Achievement - Lost at Sea":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
+        "Hairball City - Behind The Train":
+            lambda state: (options.swimming.value != 1
+                          or options.precisejumps.value == 1
+                          or state.has("Swim Course", player)),
         "Home - Hasselhop (Chatsanity)":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
         "Hairball City - Frog Statue Crown":
@@ -1418,6 +1425,14 @@ def get_location_rules(player, world):
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
         "Public Pool - Bone Dog (Chatsanity)":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
+        "Public Pool - Britney (Chatsanity)":
+            lambda state: (options.swimming.value != 1
+                          or options.precisejumps.value == 1
+                          or state.has("Swim Course", player)),
+        "Public Pool - Niko, Pink Frog & King Frog (Thought)":
+            lambda state: (options.swimming.value != 1
+                           or options.precisejumps.value == 1
+                           or state.has("Swim Course", player)),
 
         "Bathhouse - Bone Above Middle Bathhouse":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player))
@@ -1446,6 +1461,8 @@ def get_location_rules(player, world):
         "Bathhouse - Bone Dog (Chatsanity)":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player))
                           and (state.has("Contact List 2", player) or state.has("Progressive Contact List", player, 2)),
+        "Bathhouse - Hut in Water":
+            lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
 
         "Tadpole HQ - Bone On Wood Board On Side Of Right Building":
             lambda state: (options.swimming.value != 1 or state.has("Swim Course", player)),
@@ -1838,10 +1855,13 @@ def get_location_rules(player, world):
                           and has_textbox(state, player, world, "Hairball City"))
                           or (state.has("Turbine Town Ticket", player)
                               and (options.swimming.value != 1
-                              or options.precisejumps.value == 1
-                              or state.has("Swim Course", player))
+                                   or options.precisejumps.value == 1
+                                   or state.has("Swim Course", player))
                               and has_textbox(state, player, world, "Turbine Town"))
                           or (state.has("Public Pool Ticket", player)
+                              and (options.swimming.value != 1
+                                   or options.precisejumps.value == 1
+                                   or state.has("Swim Course", player))
                               and has_textbox(state, player, world, "Public Pool")),
         "Chatsanity - Brooklyn Frog":
             lambda state: state.has("Hairball City Ticket", player)
@@ -1859,7 +1879,8 @@ def get_location_rules(player, world):
                               and has_textbox(state, player, world, "Home")),
         "Chatsanity - Clint":
             lambda state: state.has("Public Pool Ticket", player)
-                          and has_textbox(state, player, world, "Public Pool"),
+                          and has_textbox(state, player, world, "Public Pool")
+                          and (options.swimming.value != 1 or state.has("Swim Course", player)),
         "Chatsanity - Clover":
             lambda state: state.has("Public Pool Ticket", player)
                           and has_textbox(state, player, world, "Public Pool"),
