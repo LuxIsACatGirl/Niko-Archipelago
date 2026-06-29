@@ -2060,8 +2060,8 @@ def get_location_rules(player, world):
             lambda state: state.has("Turbine Town Ticket", player)
                           and has_textbox(state, player, world, "Turbine Town"),
         "Chatsanity - Loud Stag":
-            lambda state: state.has("Tadpole HQ Ticket", player)
-                          and has_textbox(state, player, world, "Tadpole HQ"),
+            lambda state: state.has("Salmon Creek Forest Ticket", player)
+                          and has_textbox(state, player, world, "Salmon Creek Forest"),
         "Chatsanity - Louist":
             lambda state: (state.has("Hairball City Ticket", player)
                               and has_contact_list(state, player, 2)
