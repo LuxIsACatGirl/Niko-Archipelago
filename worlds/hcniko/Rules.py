@@ -1678,6 +1678,8 @@ def get_location_rules(player, world):
             lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
         "Public Pool - Tippy (Chatsanity)":
             lambda state: has_access_to(state, player, "Bathhouse - Poppy"),
+        "Public Pool - Melissa & Stijn (Chatsanity)":
+            lambda state: has_access_to(state, player, "Salmon Creek Forest - Stijn & Melissa"),
 
         "Bathhouse - Blessley (Chatsanity)":
             lambda state: has_contact_list(state, player, 2),
