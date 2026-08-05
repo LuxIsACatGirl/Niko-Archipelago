@@ -2286,7 +2286,10 @@ def get_location_rules(player, world):
         "Chatsanity - Poppy":
             lambda state: (state.has("Party Invitation", player)
                           and has_textbox(state, player, world, "Home"))
-                          or has_access_to(state, player, "Bathhouse - Poppy"),
+                           or ((state.has("Key", player, 7)
+                           or state.has("Bathhouse Key", player, 2))
+                          and state.has("Bathhouse Ticket", player)
+                          and has_textbox(state, player, world, "Bathhouse")),
         "Chatsanity - R&D Frog":
             lambda state: state.has("Tadpole HQ Ticket", player)
                           and has_textbox(state, player, world, "Tadpole HQ"),
